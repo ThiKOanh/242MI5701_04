@@ -1,0 +1,53 @@
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet" />
+
+<header [class.fixed-navbar]="isFixed" (scroll)="onScroll()">
+  <div style="background-color: white; width: 100%;">
+    <div>
+      <nav class="header__menu">
+        <div class="menubar">
+          <a routerLink=""><img src="assets/images/Logobg.png"></a>
+          <ul>
+            <li id="home"><a routerLink="">Trang chủ</a></li>
+            <li id="product" class="dropdown">
+              <a routerLink="/app-category">Sản phẩm</a>
+              <div class="dropdown-center">
+                <ul>
+                  <li *ngFor="let category of categories">
+                    <a (click)="selectCategory(category.Category)">{{ category.Category }}</a>
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li id="collection"><a [routerLink]="['/app-xmasdeals']">🎄 Xmas Collection 🎄</a></li>
+            <li id="beauritystory"><a [routerLink]="['/app-infor']">Câu chuyện thương hiệu</a></li>
+            <li>
+              <form class="search" (ngSubmit)="search()">
+                <span class="material-icons-outlined">search</span>
+                <input type="text" placeholder=" Search..." [(ngModel)]="keyword" name="keyword" required>
+                <button type="submit">Tìm kiếm</button>
+              </form>
+            </li>
+            <a [routerLink]="['/app-cart']"><span class="material-icons-outlined">shopping_bag</span></a>
+            <li class="item"><button>{{quantityItem}}</button></li>
+            <a *ngIf="!isLoggedIn"><a [routerLink]="['/app-login']"><span
+                  class="material-icons-outlined">account_circle</span></a></a>
+            <!-- ĐĂNG NHẬP RỒI -->
+            <li>
+              <div class="dropdown--signIn">
+                <div class="content__dropdown--signIn" *ngIf="isLoggedIn">
+                  <span class="material-icons-outlined">account_circle</span>
+                  <span class="username">{{Name}}</span>
+                </div>
+                <ul class="dropdown__menu--item" *ngIf="isLoggedIn">
+                  <li><a [routerLink]="'app-profile'">Trang cá nhân</a></li>
+                  <li><a (click)="logOut()">Đăng xuất</a></li>
+                </ul>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+  </div>
+</header>

@@ -1,0 +1,181 @@
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet" />
+
+<div class="main-payment-banking">
+  <div class="navigate">
+    <a routerLink="/app-home">Trang chủ&nbsp;</a>/
+    <a routerLink="/app-cart">&nbsp;Giỏ hàng&nbsp;</a>/
+    <a routerLink="/app-payment">&nbsp;Thanh toán</a>
+  </div>
+  <div class="main-info">
+    <div class="left">
+      <div class="cart">
+        <div class="cart__top">
+          <h2 class="cart__top-header">
+            Giỏ hàng ({{ quantityItem }})
+          </h2>
+
+        </div>
+        <div class="cart__main">
+          <div class="cart__main-row">
+            <p class="cart__main-row--product">
+              Sản phẩm
+            </p>
+            <p class="cart__main-row--price">
+              Đơn giá
+            </p>
+            <p class="cart__main-row--quantity">
+              Số lượng
+            </p>
+            <p class="cart__main-row--sum">
+              Thành tiền
+            </p>
+          </div>
+
+          <div class="cart__main-row" *ngFor="let item of selectedItems">
+            <div class="cart__main-row--product">
+              <div class="cart__main-row--product-img" style="width:70px; height: 70px">
+                <img src="{{ item.Image }}" alt="">
+              </div>
+              <p class="cart__main-row--product-info"> {{ item.Name }}</p>
+            </div>
+            <p class="cart__main-row--price">{{ item.Price }} VNĐ</p>
+            <p class="cart__main-row--quantity">{{ item.quantity }}</p>
+            <p class="cart__main-row--sum">{{ findSum(item) }} VNĐ</p>
+          </div>
+        </div>
+        <div class="cart__top-button" style="border: none; outline: none; color: white; background-color: transparent;">
+          <button (click)="returnCart()">Chỉnh sửa giỏ hàng</button>
+        </div>
+      </div>
+
+      <div class="information">
+        <div class="information__heading">Thông tin nhận hàng</div>
+        <form class="information__detail">
+          <div class="form__information-row">
+            <label for="" class="form__information-label">Tên khách hàng:</label>
+            <div class="form__information-input">
+              <span>{{ currentUser.Name }}</span>
+            </div>
+          </div>
+          <div class="form__information-row">
+            <label for="" class="form__information-label">Số điện thoại:</label>
+            <div class="form__information-input">
+              <span>{{ currentUser.phonenumber }}</span>
+            </div>
+          </div>
+          <div class="form__information-row">
+            <label for="" class="form__information-label">Email:</label>
+            <div class="form__information-input">
+              <span>{{ currentUser.Mail }}</span>
+            </div>
+          </div>
+          <div class="form__information-row">
+            <label for="" class="form__information-label">Địa chỉ:</label>
+            <div class="form__information-input">
+              <span>{{ currentUser.Address }}</span>
+            </div>
+          </div>
+          <div class="form__information-row">
+            <label for="" class="form__information-label">Ghi chú</label>
+            <div class="form__information-input">
+              <textarea name="" id="" cols="30" rows="3" placeholder="Nhập ghi chú..."></textarea>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="information">
+        <div class="information__heading">Hình thức thanh toán</div>
+        <label class="information__row" for="COD" (click)="checkCOD()">
+          <input type="radio" class="information__row-input" name="check" value="COD" [(ngModel)]="isChecked_COD"
+            id="COD">
+          <span class="information__row-info">Thanh toán khi nhận hàng</span>
+        </label>
+        <label class="information__row" (click)="checkBanking()" for="banking">
+          <input type="radio" class="information__row-input" name="check" value="Banking"
+            [(ngModel)]="isChecked_Banking" id="banking">
+          <span class="information__row-info">Thanh toán qua Internet Banking</span>
+        </label>
+        <label class="information__row" for="momo" (click)="checkMoMo()">
+          <input type="radio" class="information__row-input" name="check" value="MoMo" [(ngModel)]="isChecked_MoMo"
+            id="momo">
+          <span class="information__row-info">Thanh toán qua ví điện tử Momo</span>
+        </label>
+      </div>
+    </div>
+    <div class="order">
+      <div class="order__heading">
+        <span class="material-icons-outlined">shopping_bag</span>
+        <span class="title-bag">Đơn hàng</span>
+      </div>
+      <div class="order__row">
+        <p class="order__row-left">
+          Tổng tiền
+        </p>
+        <p class="order__row-right">
+          {{ totalPrice.toLocaleString("vi-VN", { minimumFractionDigits: 0 }) }} VNĐ
+        </p>
+      </div>
+      <div class="order__row">
+        <p class="order__row-left">
+          Giảm giá
+        </p>
+        <p class="order__row-right">
+          {{ discountPrice.toLocaleString("vi-VN", { minimumFractionDigits: 0 }) }} VNĐ
+        </p>
+      </div>
+      <div class="order__row">
+        <p class="order__row-left">
+          Tạm tính
+        </p>
+        <p class="order__row-right">
+          {{ prePrice.toLocaleString("vi-VN", { minimumFractionDigits: 0 }) }} VNĐ
+        </p>
+      </div>
+      <div class="order__row">
+        <p class="order__row-left">
+          Phí vận chuyển
+        </p>
+        <p class="order__row-right">
+          {{ deliveryFee.toLocaleString("vi-VN", { minimumFractionDigits: 0 }) }} VNĐ
+        </p>
+      </div>
+      <div class=" order__row-discount">
+        <span class="material-icons-outlined">
+          local_offer
+        </span>
+        <input type="text" placeholder="Nhập mã giảm giá" [(ngModel)]="discountCode" (input)="applyDiscountCode()">
+      </div>
+      <div class="order__row">
+        <p class="order__row-left bold">
+          Thành tiền
+        </p>
+        <p class="order__row-right">
+          {{ price.toLocaleString("vi-VN", { minimumFractionDigits: 0 }) }} VNĐ
+        </p>
+      </div>
+      <div class="order__row">
+        <input id="agree" type="checkbox" [(ngModel)]="isChecked_Confirm">
+        <span><label for="agree">Đồng ý với các chính sách của Beaurity để hoàn tất đơn hàng</label></span>
+      </div>
+      <div class="order__row-button">
+        <button (click)="onComplete()">Hoàn tất</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- popup -->
+<div class="popup" *ngIf="isDonePayment">
+  <div class="popup-container">
+    <h2 class="popup-title">Đặt hàng thành công</h2>
+    <hr>
+    <p class="popup-message"><span class="main-color">Đặt hàng thành công</span>
+      <br>Vui lòng theo dõi đơn hàng nhé!
+    </p>
+    <div class="popup-buttons">
+      <button class="popup-button" (click)="viewDetail()">Xem chi tiết</button>
+      <button class="popup-button" (click)="goHome()">Trở lại</button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,87 @@
+<a routerLink="./navigate_bar"></a>
+<div class="main">
+    <div class="main-left">
+        <a routerLink=".navigate-bar"></a>
+    </div>
+    <div class="main-right">
+        <div class="admin-info">
+            <span class="material-icons-outlined">notifications</span>
+            <span class="admin-name">Admin</span>
+            <img src="assets/admin-avatar.png" class="admin-ava">
+        </div>
+        <div class="body"> <!-- Wrap the content in a div with the class "body" -->
+            <div class="page-title">
+                <div class="page-title-main">
+                    <p>Thông tin khách hàng</p>
+                </div>
+                <div class="page-search">
+                    <input type="search" id="search" placeholder="Tìm kiếm..." />
+                    <span class="material-symbols-outlined">search</span>
+                </div>
+            </div>
+            <div class="page-body">
+                <div class="page-body-header">
+                    <div class="cus-info">
+                        <div class="cus-info-title">Thông tin cá nhân</div>
+                        <div class="cus-info-content">
+                            <div class="cus-image">
+                                <img class="cus-img" src="{{customer.Image}}">
+                            </div>
+                            <tbody class="cus-info-data">
+                                <tr class="cus-info-data-detail">
+                                    <td class="cus-title">Tên khách hàng:</td>
+                                    <td class="cus-data">{{customer.CustomerName}}</td>
+                                </tr>
+                                <tr class="cus-info-data-detail">
+                                    <td class="cus-title">Giới tính:</td>
+                                    <td class="cus-data">{{customer.Gender}}</td>
+                                </tr>
+                                <tr class="cus-info-data-detail">
+                                    <td class="cus-title">Số điện thoại:</td>
+                                    <td class="cus-data">{{customer.Phone}}</td>
+                                </tr>
+                                <tr class="cus-info-data-detail">
+                                    <td class="cus-title">Ngày sinh:</td>
+                                    <td class="cus-data">{{customer.BOD}}</td>
+                                </tr>
+                                <tr class="cus-info-data-detail">
+                                    <td class="cus-title">Email:</td>
+                                    <td class="cus-data">{{customer.Mail}}</td>
+                                </tr>
+                            </tbody>
+                        </div>
+                    </div>
+                    <div class="page-history-order">
+                        <div class="order-title">Lịch sử mua hàng</div>
+                        <div class="box__order">
+                            <div class="box__history--order" *ngFor="let item of cusOrders.reverse()">
+                                <div class="box__history--order--title">
+                                    <h4>
+                                        Đơn hàng ngày {{ item.OrderDate}}
+                                        <span class="completed">{{ item.Status }}</span>
+                                    </h4>
+                                    <button (click)="viewOrderDetail(item)" (click)="searchCustomer(item.CustomerID)">
+                                        Xem chi tiết</button>
+                                </div>
+                                <div class="box__history--listproduct">
+                                    <div class="cart__main">
+                                        <div class="cart__main-row" *ngFor="let cosmetic of item.OrderCosmetic">
+                                            <div class="cart__main-row--product">
+                                                <div class="cart__main-row--product-img">
+                                                    <img src="{{ cosmetic.Image }}" alt="" />
+                                                </div>
+                                                <p class="cart__main-row--product-info">{{ cosmetic.Name }}</p>
+                                            </div>
+                                            <p class="cart__main-row--price">{{ cosmetic.Price }} VNĐ</p>
+                                            <p class="cart__main-row--quantity">{{ cosmetic.quantity }}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

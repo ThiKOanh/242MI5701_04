@@ -1,0 +1,133 @@
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,500,0,0" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+<!-- Cố định admin page-->
+<a hrel="./navigate_bar"></a>
+<div class="main">
+    <div class="main-left">
+        <a href=".navigate-bar"></a>
+    </div>
+    <!--  -->
+
+    <div class="main-right">
+        <!-- Cố định admin page -->
+        <div class="admin-info">
+            <span class="material-symbols-outlined">notifications</span>
+            <span class="admin-name">Admin</span>
+            <img src="assets/admin-avatar.png" class="admin-ava">
+        </div>
+        <div class="page-title">
+            <p>Chi tiết đơn hàng</p>
+            <div class="page-search">
+                <input type="search" id="search" placeholder="Tìm kiếm..." />
+                <span class="material-symbols-outlined">search</span>
+            </div>
+        </div>
+            <div class="page-body">
+                <div class="page-body-header">
+                    <div class="order_info">
+                        <div class="order_info--detail">
+                            <p class="title">Mã</p>
+                            <p class="data" id="ord_id">{{order.OrderID}}</p>
+                        </div>
+                        <hr>
+                        <div class="order_info--detail">
+                            <p class="title">Ngày tạo</p>
+                            <p class="data">{{order.OrderDate}}</p>
+                        </div>
+                        <hr>
+                        <div class="order_info--detail">
+                            <p class="title">Phương thức thanh toán</p>
+                            <p class="data">{{order.PaymentMethod}}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="page-body-content">
+                    <div class="page-body-table">
+                        <table class="order_table" >
+                            <thead class="table_title">
+                                <th>STT</th>
+                                <th>Ảnh</th>
+                                <th>Tên sản phẩm</th>
+                                <th>Số lượng</th>
+                                <th>Đơn giá</th>
+                                <th>Thành tiền</th>
+                            </thead>
+                            <tbody class="table_content">
+                                <tr class="table_data" *ngFor="let prod of order.OrderCosmetic; index as i">
+                                    <td>{{i+1}}</td>
+                                    <td class="image"><img src="{{prod.Image}}"></td>
+                                    <td>{{prod.Name}}</td>
+                                    <td>{{prod.quantity}}</td>
+                                    <td>{{prod.Price}}đ</td>
+                                    <td>{{findSum(prod)}}đ</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="5" class="text-end">Tạm tính</td>
+                                    <td>
+                                        {{order.PrePrice.toLocaleString("vi-VN", {minimumFractionDigits: 0})}}đ
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="5" class="text-end">Phí vận chuyển</td>
+                                    <td>
+                                        {{order.DeliveryFee.toLocaleString("vi-VN", {minimumFractionDigits: 0})}}đ
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="5" class="text-end">Giảm giá</td>
+                                    <td>
+                                        {{order.DiscountPrice.toLocaleString("vi-VN", {minimumFractionDigits: 0})}}đ
+                                    </td>
+                                </tr>
+                                <tr class="table_data table-lg">
+                                    <td colspan="5" class="total text-end">Tổng cộng</td>
+                                    <td style="font-weight: bold; color:#2D982A; font-size:15pt">
+                                        {{order.TotalPrice.toLocaleString("vi-VN", {minimumFractionDigits: 0})}}đ
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="order_action">
+                            <span>
+                                <button id="approve" (click)="completeOrder()">
+                                    Hoàn thành
+                                </button>
+                            </span>
+                            <span>
+                                <button id="deli" (click)="deliveryOrder()">
+                                    Đang vận chuyển
+                                </button>
+                            </span>
+                            <span>
+                                <button id="cancel" (click)="cancelOrder()">
+                                    Hủy đơn
+                                </button>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="page-body-detail">
+                        <div class="order-info">
+                            <div>
+                                <p class="order-info-title">Thông tin người mua</p>
+                                <p>Khách hàng: {{order.CustomerName}}</p>
+                                <p>Đã đặt: 1 đơn hàng</p>
+                            </div>
+                            <hr>
+                            <div class="deli-info">
+                                <p class="order-info-title">Thông tin giao hàng</p>
+                                <p>Sđt: {{order.Phone}}</p>
+                                <p>Địa chỉ: {{order.Address}} </p>
+                            </div>
+                            <hr>
+                            <div class="note-info">
+                                <p class="order-info-title">Ghi chú về đơn hàng</p>
+                                <p id="note">Không có ghi chú</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </div>
+    </div>
+</div>
+

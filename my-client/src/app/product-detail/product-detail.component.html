@@ -1,0 +1,191 @@
+<link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+<link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+<div class="container">
+    <div class="container">
+        <div class="section-navigate">
+            <ol>
+                <li>
+                    <a routerLink="/app-home">Trang chủ</a>
+                </li>
+                <li *ngIf="cosmetic?.Category">
+                    <a (click)="navigateToCategory(cosmetic.Category)">{{ cosmetic.Category }}</a>
+                </li>
+                <li>
+                    <a routerLink="/app-product-detail/{{ cosmetic.Id }}">{{ cosmetic.Name }}</a>
+                </li>
+            </ol>
+        </div>
+        <div class="content">
+            <div class="content__item">
+                <div class="item__img">
+                    <div class="item__img--main">
+                        <img src="{{cosmetic.Image}}">
+                    </div>
+                </div>
+                <div class="item__infor">
+                    <p class="item__infor--title">{{cosmetic.Name}}</p>
+                    <hr>
+                    <h3 class="item__infor--price">{{cosmetic.Price}} VNĐ</h3>
+                    <ul style="margin-left: 0px">
+                        <li><b> Thành phần: </b>{{cosmetic.Ingredients}}</li>
+                        <li><b> Công dụng: </b>{{cosmetic.Uses}}</li>
+                    </ul>
+                    <p> <b> Mô tả sản phẩm: </b> </p>
+                    <p>{{cosmetic.Description}}</p>
+                    <div class="amount">
+                        <p style="display: inline-block;">
+                            <b>Chọn số lượng</b>
+                        </p>
+                        <div class="item--amount">
+                            <button (click)="decrease()" id="clickdecrease"><span
+                                    class="material-symbols-outlined">remove</span></button>
+                            <input type="text" name="quantity" [(ngModel)]="quantity">
+                            <button (click)="increase()" id="clickincrease"><span
+                                    class="material-symbols-outlined">add</span></button>
+                        </div>
+                    </div>
+                    <hr style="height: auto; margin-bottom: 20px;">
+                    <div class="item--button">
+                        <button class="buy--button" (click)="addToCartToBuy(cosmetic)">MUA NGAY</button>
+                        <button class="add--cart" (click)="addToCart(cosmetic)">THÊM VÀO GIỎ HÀNG</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <p style="font-weight: bold; font-size: 30px; color: #2D982A; text-align: center;">Sản phẩm liên quan</p>
+        <div class="danhmucproduct">
+            <div class="product" *ngFor="let same_cosmetic of cosmetics.slice(0,5)">
+                <div class="product-item">
+                    <div (click)="viewCosmeticDetail(same_cosmetic)">
+                        <div class="product-item--img">
+                            <img src="{{ same_cosmetic.Image }}" style="width: 180px;">
+                        </div>
+                        <p class="product-item--info">{{ same_cosmetic.Name }}</p>
+                        <p class="product-item--price">{{ same_cosmetic.Price }} VNĐ</p>
+                    </div>
+                    <button class="product-item--add" (click)="addToCartSame(same_cosmetic)">Thêm vào giỏ hàng</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="content__description">
+            <h2 style="text-align: center; margin-top: 20px; color:#2D982A">{{ cosmetic.Name }}</h2>
+            <div class="img-container">
+                <img src="{{ cosmetic.Image }}" class="img">
+            </div>
+            <div>
+                <h3>Thành phần:</h3>
+                <p>{{ cosmetic.Ingredients }}</p>
+            </div>
+            <div>
+                <h3>Công dụng:</h3>
+                <p>{{ cosmetic.Uses }}</p>
+            </div>
+            <div>
+                <h3>Bảo quản:</h3>
+                <p>{{ cosmetic.Store }}</p>
+            </div>
+            <div>
+                <h3>Lưu ý:</h3>
+                <div [ngClass]="{'expanded': expandDiv==true}" *ngIf="expandDiv">
+                    <p>{{ cosmetic.Warnings }}</p>
+                    <div class="more--button" (click)="HiddenMore()">
+                        Thu hẹp
+                        <span class="material-symbols-outlined">expand_less</span>
+                    </div>
+                </div>
+            </div>
+            <div *ngIf="!expandDiv" (click)="showMore()" class="more--button">
+                Xem thêm
+                <span class="material-symbols-outlined">expand_more</span>
+            </div>
+        </div>
+    </div>
+    <div class="comment">
+        <p style="color:#2D982A">Đánh giá của khách hàng</p>
+        <div class="comment__box--input">
+            <div class="commit__infor">
+                <div class="commit--gender">
+                    <label class="gender">
+                        <input type="radio" checked="checked" name="radio">Anh
+                    </label>
+                    <label class="gender">
+                        <input type="radio" checked="checked" name="radio">Chị
+                    </label>
+                </div>
+                <div class="commit--name">
+                    <label for="name">
+                        <input type="text" id="name" placeholder="Họ và tên">
+                        <span class="material">*</span>
+                    </label>
+                    <label for="phone">
+                        <input type="text" id="phone" placeholder="Số điện thoại">
+                    </label>
+                </div>
+            </div>
+            <textarea name="comment" id="comment" placeholder="Nhập nội dung..."></textarea>
+            <div class="sendComment">
+                <button id="sendComment">Gửi bình luận</button>
+            </div>
+        </div>
+        <div class="comment__cus">
+            <div class="comment__box--cus" style="width: 95%">
+                <div class="comment__cus--content">
+                    <div class="profile">
+                        <img src="assets\images\customer.jpg" alt="Avatar" class="avatar">
+                        <h3>Mỹ Kim</h3>
+                    </div>
+                    <p>Cho em hỏi mình có ship về Vũng Tàu không ạ? Em muốn đặt hàng ạ
+                    </p>
+                </div>
+                <div class="comment__cus--reply">
+                    <div class="profile">
+                        <img src="assets\images\employee.jpg" alt="Avatar" class="avatar">
+                        <h3>Nhân viên Beaurity</h3>
+                    </div>
+                    <p>Chào chị, Beaurity có giao đến Vũng Tàu nhé.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="comment__box--cus" style="width: 95%">
+            <div class="comment__cus--content">
+                <div class="profile">
+                    <img src="assets\images\customer.jpg" alt="Avatar" class="avatar">
+                    <h3>Huỳnh Như</h3>
+                </div>
+                <p>Loại này dùng cho da dầu có ổn không ạ</p>
+            </div>
+            <div class="comment__cus--reply">
+                <div class="profile">
+                    <img src="assets\images\employee.jpg" alt="Avatar" class="avatar">
+                    <h3>Nhân viên Beaurity</h3>
+                </div>
+                <p>Beaurity chào chị. Loại này bên em được bác sĩ da liễu khuyên dùng cho da dầu đó ạ.
+                <p>
+            </div>
+        </div>
+        <div class="comment__button--more">
+            <button><span class="material-symbols-outlined">chevron_left</span> Trước</button>
+            <button>Sau <span class="material-symbols-outlined">chevron_right</span></button>
+        </div>
+    </div>
+</div>
+
+<!-- popup  -->
+<div class="popup" *ngIf="isLogin">
+    <div class="popup-container">
+        <h2 class="popup-title">Đặt hàng</h2>
+        <hr>
+        <p class="popup-message">Bạn vui lòng <span class="main-color">đăng nhập</span> để tiếp tục đặt hàng nhé!
+        </p>
+        <div class="popup-buttons">
+            <button class="popup-button" (click)="onLogin()">Đăng nhập</button>
+            <button class="popup-button" (click)="onBack()">Trở lại</button>
+        </div>
+    </div>
+</div>

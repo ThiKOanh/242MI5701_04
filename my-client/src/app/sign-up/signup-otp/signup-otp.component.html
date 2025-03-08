@@ -1,0 +1,28 @@
+<div class="imgbg"><img src="assets/images/BG.png"></div>
+<div class="content">
+  <div class="imggt"><a href="app-home"><img src="assets/images/GT.png"></a></div>
+  <form action="app-home" method="get" class="signup_form">
+    <div class="content--top"><a href="app-signup">Trở về</a></div>
+    <h2>XÁC NHẬN ĐĂNG KÝ</h2>
+    <div class="bold">
+      <p>Mã xác minh OTP đã gửi đến số điện thoại của bạn.</p>
+      <p>Vui lòng kiểm tra điện thoại nhé.</p>
+    </div>
+
+    <div class="input--content">
+      <input type="text" id="otp-input" placeholder="Nhập mã OTP" [(ngModel)]="verificationCode" name="verificationCode"
+        (blur)="checkVerificationCode()">
+    </div>
+    <div *ngIf="!isVerificationCodeValid" class="error-message">Mã xác nhận không hợp lệ</div>
+
+
+    <div class="content--bottom">
+      <p><b>Chưa nhận được mã?</b></p>
+      <a id="otp-button" (click)="resend()" style="cursor: pointer">Gửi lại mã</a>
+    </div>
+
+    <div>
+      <button type="submit" class="login_button" (click)="onComplete()" style="cursor: pointer">HOÀN TẤT</button>
+    </div>
+  </form>
+</div>

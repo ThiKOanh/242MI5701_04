@@ -1,0 +1,95 @@
+<link rel="stylesheet"
+  href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,500,0,0" />
+<link rel="stylesheet"
+  href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+<!-- Cố định admin page-->
+<a href="./navigate_bar"></a>
+<div class="main">
+  <div class="main-left">
+    <a href=".navigate-bar"></a>
+  </div>
+  <div class="main-right">
+    <!-- Cố định admin page -->
+    <div class="admin-info">
+      <span class="material-symbols-outlined">notifications</span>
+      <span class="admin-name">Admin</span>
+      <img src="assets/admin-avatar.png" class="admin-ava" />
+    </div>
+    <div class="page-title">
+      <p>Sản phẩm</p>
+      <div class="page-search">
+        <input type="search" id="search" placeholder="Tìm kiếm..." />
+        <span class="material-symbols-outlined">search</span>
+      </div>
+    </div>
+    <div class="page-body">
+      <div class="product__action">
+        <span><button id="back" (click)="goBack()">Quay lại</button></span>
+      </div>
+      <p>Thông tin chi tiết sản phẩm</p>
+      <div class="page-body-content">
+        <div class="content_left">
+          <label>Ảnh:
+            <img src="{{cosmetic.Image}}" alt="" width="160"><br>
+          </label>
+          <label for="name">Tên sản phẩm:
+            <div>
+              <input type="text" class="form-control" name="name" id="name"
+                [(ngModel)]="cosmetic.Name" readonly />
+            </div>
+          </label>
+          <label for="category">Danh mục:
+            <div>
+              <input type="text" class="form-control" name="category" id="category"
+                [(ngModel)]="cosmetic.Category" readonly />
+            </div>
+          </label>
+          <label for="price">Đơn giá:
+            <div>
+              <input type="text" class="form-control" name="price" id="price"
+                [(ngModel)]="cosmetic.Price" readonly />
+            </div>
+          </label>
+          <label for="stock">Tồn kho:
+            <div>
+              <input type="text" class="form-control" name="stock" id="stock"
+                [(ngModel)]="cosmetic.Quantity" readonly />
+            </div>
+          </label>
+        </div>
+        <div class="content_right">
+          <label for="use">Công dụng:
+            <div>
+              <input type="text" class="form-control" name="use" id="use"
+                [(ngModel)]="cosmetic.Uses" readonly />
+            </div>
+          </label>
+          <label for="ingredient">Thành phần:
+            <div>
+              <input type="text" class="form-control" name="ingredient" id="ingredient"
+                [(ngModel)]="cosmetic.Ingredients" readonly />
+            </div>
+          </label>
+          <label for="description">Mô tả:
+            <div>
+              <textarea type="text" class="form-control" name="description" id="description"
+                [(ngModel)]="cosmetic.Description" readonly></textarea>
+            </div>
+          </label>
+          <label for="warning">Lưu ý sử dụng:
+            <div>
+              <textarea type="text" class="form-control" name="warning" id="warning"
+                [(ngModel)]="cosmetic.Warnings" readonly></textarea>
+            </div>
+          </label>
+          <label for="preserve">Cách bảo quản:
+            <div>
+              <input type="text" class="form-control" name="preserve" id="preserve"
+                [(ngModel)]="cosmetic.Store" readonly />
+            </div>
+          </label>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

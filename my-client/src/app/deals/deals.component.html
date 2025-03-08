@@ -1,0 +1,89 @@
+<div class="content_top">
+  <div class="content_top_left">
+    <img src="assets/images/ComboX.png">
+  </div>
+  <div class="content_top_right">
+    <br />
+    <a class="content_top_right_WM"><img src="assets/images/WatermarkX.png"></a>
+    <p class="content_center"><b>Bộ sản phẩm treatment Diếp Cá </b> nay đã khoác lên mình diện mạo tươi mới hơn, nhưng
+      vẫn giữ trọn tinh túy và chất lượng với sự tự nhiên và tinh khiết của rau diếp cá được thừa hưởng trong từng sản
+      phẩm. Với công thức độc đáo, bộ sản phẩm đem lại hiệu quả chăm sóc sạch và sâu, giúp cung cấp độ ẩm, giảm viêm và
+      ngăn ngừa mụn ẩn.</p>
+    <div class="button-container">
+      <button class="button">SỮA RỬA MẶT</button>
+      <button class="button">TINH CHẤT DƯỠNG ẨM</button>
+      <button class="button">NƯỚC DƯỠNG ẨM</button>
+    </div>
+    <img src="assets/images/tree.png">
+  </div>
+</div>
+
+<div class="voucher">
+  <div><img src="assets/images/Voucher_Xmas1.png"></div>
+  <div><img src="assets/images/Voucher_Xmas2.png"></div>
+  <div><img src="assets/images/Voucher_Xmas3.png"></div>
+</div>
+
+<!-- File deals.component.html -->
+<p class="header">🎄 X_BEAURITY 🎄</p>
+<div class="danhmucproduct">
+  <div class="product" *ngFor="let cosmetic of cosmetics">
+    <div class="product-item">
+      <div (click)="viewCosmeticDetail(cosmetic)">
+        <div class="product-item--img">
+          <img src="{{ cosmetic.Image }}" style="width: 180px;">
+        </div>
+        <p class="product-item--info">{{ cosmetic.Name }}</p>
+        <p class="product-item--price">{{ cosmetic.Price }} VNĐ</p>
+      </div>
+      <button class="product-item--add" (click)="addToCart(cosmetic)">Thêm vào giỏ hàng</button>
+    </div>
+  </div>
+</div>
+
+<br />
+
+<div class="introduction">
+  <div class="center-image">
+    <img src="assets/images/WatermarkX.png" alt="Watermark">
+  </div>
+  <div class="mockup_right">
+    <div class="text-container">
+      <button class="button">SỮA RỬA MẶT</button>
+      <p>Sữa rửa mặt Treatment là một bước đầu tuyệt vời để khởi đầu quy trình chăm sóc da hàng ngày của bạn. Với thành
+        phần từ rau diếp cá, nó không chỉ làm sạch da một cách nhẹ nhàng mà còn giúp nuôi dưỡng và cung cấp độ ẩm cho
+        da, mang lại cảm giác mềm mịn và tươi mới sau mỗi lần sử dụng.</p>
+    </div>
+    <div class="img-container1">
+      <img src="assets/images/MockupSRMX.png">
+    </div>
+  </div>
+</div>
+
+<div class="introduction">
+  <div class="mockup_left">
+    <div class="img-container2">
+      <img src="assets/images/MockupSerumX.png">
+    </div>
+    <div class="text-container">
+      <button class="button">TINH CHẤT DƯỠNG ẨM</button>
+      <p>Serum Treatment chứa các dưỡng chất quan trọng từ rau diếp cá, giúp làm dịu và giảm viêm cho da. Sản phẩm này
+        cũng thẩm thấu nhanh vào da và cung cấp độ ẩm sâu, giúp da trở nên mềm mịn và mượt mà hơn. Bạn sẽ cảm nhận được
+        làn da sáng hơn và mức độ sự phục hồi cao hơn sau mỗi lần sử dụng.</p>
+    </div>
+  </div>
+  <div class="mockup_right">
+    <div class="text-container">
+      <button class="button">NƯỚC DƯỠNG ẨM</button>
+      <p>Toner Treatment với sự kết hợp của rau diếp cá và các thành phần chăm sóc da khác, nó giúp cân bằng da, se lỗ
+        chân lông và làm dịu da bị kích ứng. Da sẽ trở nên tươi sáng, mịn màng và sẵn sàng để hấp thụ các dưỡng chất từ
+        các bước chăm sóc tiếp theo.</p>
+    </div>
+    <div class="img-container3">
+      <img src="assets/images/MockupTonerX.png">
+    </div>
+  </div>
+</div>
+
+<!-- Add the snowfall effect -->
+<canvas id="snowfallCanvas"></canvas>

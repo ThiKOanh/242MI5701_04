@@ -1,0 +1,14 @@
+<table width="100%">
+    <tr>
+        <td>
+            <app-admin-navigate-bar *ngIf="!isLoginPage()"></app-admin-navigate-bar>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <router-outlet></router-outlet>
+        </td>
+    </tr>
+</table>
+<!-- <app-edit-category-level-1></app-edit-category-level-1> -->
+<!-- <app-popup-delete></app-popup-delete> -->

@@ -1,0 +1,39 @@
+<div class="wrapper">
+  <!-- Navigation Bar -->
+  <div class="category-navigation">
+    <strong>SẢN PHẨM</strong>
+    <hr>
+    <a (click)="selectCategory('')">Tất cả sản phẩm</a>
+    <div class="checklist categories" *ngFor="let category of categories">
+      <ul>
+        <li>
+          <a (click)="selectCategory(category.Name)">{{category.Name}}</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Product Section -->
+  <div class="product-section">
+    <div *ngFor="let category of categories">
+      <img *ngIf="selectedCategory === category.Name" [src]="category.Image" alt=""
+        style="border-radius: 10px; width: 100%; height: 250px;">
+    </div>
+    <p style="font-weight: bold; font-size: 30px; color: #2D982A; text-align: center;"> SẢN PHẨM
+      {{selectedCategory.toUpperCase()}}</p>
+    <div class="danhmucproduct">
+      <div class="product" *ngFor="let cosmetic of filterCosmetics()">
+        <div class="product-item">
+          <div (click)="viewCosmeticDetail(cosmetic)">
+            <div class="product-item--img">
+              <img src="{{ cosmetic.Image }}" style="width: 180px;">
+            </div>
+            <p class="product-item--info">{{ cosmetic.Name }}</p>
+            <p class="product-item--price">{{ cosmetic.Price }} VNĐ</p>
+          </div>
+          <button class="product-item--add" (click)="addToCart(cosmetic)">Thêm vào giỏ hàng</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

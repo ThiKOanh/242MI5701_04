@@ -1,0 +1,191 @@
+* {
+  font-size: 15px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.main {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: max-content;
+}
+
+.main-left {
+  width: 15%;
+}
+
+/* -----Cố định--------- */
+.main-right {
+  background: #F6F8FB;
+  width: 85%;
+  height: 100vh;
+  display: flex;
+  padding: 0 38px;
+  flex-direction: column;
+}
+
+.admin-info {
+  display: flex;
+  padding: 24px 10px;
+  justify-content: flex-end;
+}
+
+.admin-ava {
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+}
+
+.admin-info .material-symbols-outlined {
+  cursor: pointer;
+}
+
+.material-icons-outlined {
+  float: left;
+}
+
+.material-symbols-outlined {
+  font-variation-settings:
+    'FILL' 1,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 40
+}
+
+.admin-name {
+  width: fit-content;
+  height: fit-content;
+  margin: 0 10px;
+  text-align: center;
+}
+
+.page-title {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 10px;
+}
+
+.page-title p {
+  font-weight: bold;
+  font-size: 35px !important;
+  color: #2D982A;
+}
+
+.page-search {
+  color: #f2f2f2;
+  border-radius: 25px;
+  border: 1px solid #2D982A;
+  padding: 0px 10px;
+  display: flex;
+  flex-direction: row;
+}
+
+#search {
+  font-size: 13px;
+  border: none;
+}
+
+.page-search .material-symbols-outlined {
+  font-variation-settings:
+    'FILL' 1,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 20;
+  color: #979797;
+}
+
+/* --------------------------- */
+.page-body {
+  margin: 10px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+.page-body p {
+  font-weight: bold;
+  font-size: 30px;
+  text-align: center;
+  color: #2D982A
+}
+
+.product__action {
+  display: flex;
+  align-self: flex-end;
+}
+
+.product__action button {
+  border: none;
+  outline: none;
+  border-radius: 10px;
+  cursor: pointer;
+  margin: 0px 10px;
+  padding: 3px 15px;
+  float: right;
+}
+
+#save {
+  background-color: #2D982A;
+  padding: 3px 20px !important;
+  font-weight: 400;
+  color: #ffffff;
+  border: none;
+  margin-right: 15px;
+}
+
+#back {
+  border: 1px solid #2D982A;
+  font-weight: 500;
+  color: #2D982A;
+}
+
+.page-body-content {
+  display: flex;
+  padding: 10px;
+}
+
+.page-body-content label {
+  font-weight: bold;
+  padding: 1px 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.content_left {
+  width: 50%;
+  padding: 20px;
+}
+
+.content_right {
+  width: 50%;
+  padding: 20px;
+}
+
+.page-body-content label input {
+  width: 100%;
+  height: max-content;
+  margin: 8px 0;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  border-radius: 5px;
+}
+
+.page-body-content label textarea {
+  height: 100px;
+  margin: 8px 0;
+  resize: none;
+}
+
+.page-body-content label select {
+  width: 100%;
+  height: max-content;
+  margin: 8px 0;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  border-radius: 5px;
+}

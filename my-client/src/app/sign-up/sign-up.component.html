@@ -1,0 +1,91 @@
+<div class="imgbg"><img src="assets/images/BG.png"></div>
+
+<div class="content">
+  <div class="imggt"><a href="app-home"><img src="assets/images/GT.png"></a></div>
+  <form class="login_form">
+    <h2 class="header">ĐĂNG KÝ</h2>
+    <div class="container">
+      <div class="container__input">
+        <div class="container__input--item name">
+          <label for="name">Họ và tên: <span class="material">*</span> </label>
+          <div class="input--content">
+            <input type="text" name="name" id="name" placeholder="Họ và tên" [(ngModel)]="account.Name" #name="ngModel"
+              required />
+          </div>
+        </div>
+
+        <div>
+          <div class="container__input--item phone">
+            <label for="phonenumber">Số điện thoại:<span class="material">*</span> </label>
+            <div class="input--content">
+              <input type="text" name="phonenumber" id="phonenumber" placeholder="Số điện thoại"
+                [(ngModel)]="account.phonenumber" #name="ngModel" (blur)="checkPhoneNumber()" required />
+            </div>
+          </div>
+          <div *ngIf="!isPhoneNumberValid" class="error-message">Số điện thoại không hợp lệ!</div>
+        </div>
+
+        <div>
+          <div class="container__input--item email">
+            <label for="email">Email:</label><span class="material">*</span>
+            <div class="input--content">
+              <input type="text" name="email" id="email" placeholder="Email" [(ngModel)]="account.Mail" #name="ngModel"
+                (blur)="checkMail()">
+
+            </div>
+          </div>
+
+          <div class="error-message-mail" *ngIf="!isValidEmail">Email không hợp lệ!</div>
+        </div>
+
+        <div class="container__input--item address">
+          <label for="address">Địa chỉ: <span class="material">*</span> </label>
+          <div class="input--content">
+            <input type="text" name="address" id="address" placeholder="Địa chỉ" [(ngModel)]="account.Address"
+              #name="ngModel" />
+          </div>
+        </div>
+
+        <div class="container__input--item gender">Giới tính:
+          <input class="radio" type="radio" name="gender" id="male" [value]="'Nam'" required />
+          <label for="male">Nam</label>
+          &nbsp; &nbsp; &nbsp;
+          <input type="radio" name="gender" id="female" [value]="'Nữ'" required />
+          <label for="female"> Nữ</label>
+        </div>
+
+        <div class="container__input--item pass">
+          <label for="psw">Mật khẩu: <span class="material">*</span> </label>
+          <div class="input--content">
+            <input type="password" name="psw" id="psw" placeholder="Mật khẩu" [(ngModel)]="account.password"
+              #name="ngModel" (blur)="onChecked()" #passwordInput required />
+          </div>
+        </div>
+
+        <div class="container__input--item repass">
+          <label for="enterpsw">Nhập lại mật khẩu: <span class="material">*</span> </label>
+          <div class="input--content">
+            <input type="password" name="psw" id="enterpsw" placeholder="Nhập lại mật khẩu"
+              [(ngModel)]="confirmPassword" #confirmPasswordInput (blur)="checkPasswordsMatch()" required />
+          </div>
+        </div>
+      </div>
+
+      <div class="condition">
+        <input type="checkbox" name="type" id="type" value="condition" [(ngModel)]="account.agreement" /> <label
+          for="type">Tôi đã đọc và đồng ý với
+          Điều kiện giao dịch chung và Chính sách bảo mật của Beaurity</label> <span style="color:red">*</span>
+      </div>
+      <div>
+        <button (click)="postAccount()" (click)="postCustomer()" (click)="postDelivery()" class="login_button">HOÀN
+          TẤT</button>
+      </div>
+
+    </div>
+
+    <div class="content--bottom">
+      <p>Đã có tài khoản?</p>
+      <a href="app-login">Đăng nhập ngay</a>
+    </div>
+  </form>
+</div>

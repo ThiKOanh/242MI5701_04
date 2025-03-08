@@ -1,0 +1,3 @@
+<app-header *ngIf="!['/app-login', '/app-signup', '/app-forgot-password', '/app-signup-otp', '/app-reset-password', '/app-change-psw', '/app-payment-momo', '/app-payment-banking', '/app-sign-up-successfully'].includes(router.url)"></app-header>
+<router-outlet></router-outlet>
+<app-footer *ngIf="!['/app-login', '/app-signup', '/app-forgot-password', '/app-signup-otp', '/app-reset-password', '/app-change-psw', '/app-payment-momo', '/app-payment-banking', '/app-sign-up-successfully'].includes(router.url)"></app-footer>

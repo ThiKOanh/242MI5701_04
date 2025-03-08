@@ -1,0 +1,107 @@
+<div class="footer">
+    <div class="footer__logo">
+        <div>
+            <p><a href="http://localhost:4001/app-category"><img src="assets/images/myphamlanhtinh.png"></a></p>
+            <p><a href="http://localhost:4001/app-category">MỸ PHẨM CHÍNH HÃNG</a></p>
+        </div>
+        <div>
+            <p><a (click)="navigateToHome()"><img src="assets/images/camketchatluong.png"></a></p>
+            <p><a (click)="navigateToHome()">CAM KẾT CHẤT LƯỢNG</a></p>
+        </div>
+        <div>
+            <p><img src="assets/images/hotrotuvan.png"></p>
+            <p>HỖ TRỢ TƯ VẤN</p>
+        </div>
+        <div>
+            <p><a href="app-infor"><img src="assets/images/mienphivanchuyen.png"></a></p>
+            <p><a href="app-infor">MIỄN PHÍ VẬN CHUYỂN</a></p>
+        </div>
+    </div>
+
+    <div class="footer__content">
+        <div>&nbsp;</div>
+        <div class="footer__content--infor">
+            <div class="footer__content--tem">
+                <div class="contact">
+                    <img src="assets/images/Logo.png" style="width: 150px; margin-top: 10px;">
+                    <p style="font-weight: bold;">Công ty TNHH Mỹ phẩm Thuần chay Beaurity</p>
+                    <p>Số ĐKKD 12346789 cấp 04/11/2023 tại Sở Kế hoạch Đầu tư TPHCM </p>
+                    <p><span>Địa chỉ: </span>Số 669, QL1, Linh Xuân, Thủ Đức, TP.HCM</p>
+                    <p><span>Email: </span>beaurityvietnam&#64;gmail.com</p>
+                    <img src="assets/images/ncsc.png" style="width: 60px;">
+                    &nbsp;
+                    <img src="assets/images/bocongthuong.jpeg" style="width: 85px;">
+                    &nbsp;
+                    <img src="assets/images/dmca.png" style="width: 60px;">
+                    &nbsp;
+                    <img src="assets/images/vegan.png" style="width: 50px;">
+                    &nbsp;
+                </div>
+            </div>
+        </div>
+        <div>&nbsp;</div>
+        <div class="footer__content--infor">
+            <div class="footer__content--nav">
+                <div class="list-link" onclick="window.location ='/app-infor'">
+                    <p class="footer__content--title" class="bold">GIỚI THIỆU</p>
+                    <a [routerLink]="['app-infor', { id: 'beauritystory'}]">Câu chuyện thương hiệu</a>
+                    <a [routerLink]="['app-infor', { id: 'ingredientstory'}]">Câu chuyện nguyên liệu</a>
+                    <a [routerLink]="['app-infor', { id: 'policydelivery'}]">Chính sách giao hàng</a>
+                    <a [routerLink]="['app-infor', { id: 'policypayment'}]">Chính sách thanh toán</a>
+                    <a [routerLink]="['app-infor', { id: 'policywarranty'}]">Chính sách đổi trả, bảo hành</a>
+                    <a [routerLink]="['app-infor', { id: 'policysecurity'}]">Chính sách bảo mật</a>
+                    <a [routerLink]="['app-infor', { id: 'shoppinginstruction'}]">Hướng dẫn mua hàng Online</a>
+                </div>
+            </div>
+        </div>
+        <div>&nbsp;</div>
+        <div class="footer__content--infor">
+            <div class="list-link" id="scrollToTop">
+                <p class="footer__content--title" class="bold">DANH MỤC SẢN PHẨM</p>
+                <div *ngFor="let category of categories">
+                    <a (click)="navigateToCategory(category.Category)">{{ category.Category }}</a>
+                </div>
+            </div>
+        </div>
+        <div>&nbsp;</div>
+        <div class="footer__content--logo">
+            <div>
+                <div class="hotline">
+                    <p class="footer__content--title" class="bold">KẾT NỐI VỚI BEAURITY</p>
+                    <div class="hotline-img">
+                        <a href="https://www.facebook.com/beaurityvietnam" target="_blank"><img
+                                src="assets/images/fbicon.png"></a>
+                        &nbsp;
+                        <a href="https://www.instagram.com/beaurity_vn" target="_blank"><img
+                                src="assets/images/Instaicon.png"></a>
+                        &nbsp;
+                        <a href="https://www.tiktok.com/@beaurityvietnam" target="_blank"><img
+                                src="assets/images/tiktokicon.png"></a>
+                        &nbsp;
+                        <a href="https://mail.google.com/mail" target="_blank"><img
+                                src="assets/images/Gmailicon.png"></a>
+                        &nbsp;
+                    </div>
+                    <p class="bold">Hotline: 077 432 8977</p>
+                </div>
+                <div class="logo-payment">
+                    <a href="app-payment-banking"><img src="assets/images/napas.png" style="width: 50px;"></a>
+                    &nbsp;
+                    <a href="app-payment-momo"><img src="assets/images/momo.jpeg" style="width: 20px;"></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<a href="https://www.facebook.com/messages/t/129018113636026" target="_blank">
+    <img src="/assets/images/messenger.png" id="boxchat">
+</a>
+
+<div class="footer__copyright">
+    <p>
+        Copyright© 2023 BEAURITY
+        <br>
+        Website là sản phẩm phục vụ cho môn học - Nội dung trên trang web này chỉ dành cho mục đích học tập
+    </p>
+</div>

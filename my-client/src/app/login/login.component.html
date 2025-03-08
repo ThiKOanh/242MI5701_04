@@ -1,0 +1,45 @@
+<div class="imgbg"><img src="assets/images/BG.png"></div>
+<div class="frame">
+  <div class="content">
+    <div class="imggt"><a href="app-home"><img src="assets/images/GT.png"></a></div>
+    <form (ngSubmit)="onSubmit()" class="login_form">
+      <h2>ĐĂNG NHẬP</h2>
+      <p class="bold">Chào mừng bạn đến với Beaurity</p>
+      <div class="container">
+        <div class="container__input">
+          <div>
+            <div class="container__input--item">
+              <div class="input--content">
+                <input type="text" placeholder="Số điện thoại" name="phonenumber" [(ngModel)]="phonenumber" required
+                  (blur)="checkPhoneNumber()" id="phone" value="{{ phonenumber }}" />
+                <span class="material">*</span>
+              </div>
+            </div>
+            <div *ngIf="!isPhoneNumberValid" class="error-message">Số điện thoại không hợp lệ!</div>
+          </div>
+          <div class="container__input--item">
+            <div class="input--content">
+              <input type="password" placeholder="Mật khẩu" name="psw" [(ngModel)]="password" required id="password"
+                value="{{ password }}" />
+              <span class="material">*</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="container__checkbox">
+          <input type="checkbox" name="remember" class="checkbox" [(ngModel)]="rememberMe" id="rememberMe" />
+          <label for="rememberMe"> Ghi nhớ mật khẩu</label>
+          <a href="app-forgot-password">Quên mật khẩu?</a>
+        </div>
+
+        <div class="login_button">
+          <button type="submit">ĐĂNG NHẬP</button>
+        </div>
+      </div>
+      <div class="content--bottom">
+        <p>Bạn chưa có tài khoản?</p>
+        <a href="app-signup">Đăng ký ngay</a>
+      </div>
+    </form>
+  </div>
+</div>

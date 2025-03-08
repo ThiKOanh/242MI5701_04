@@ -1,0 +1,578 @@
+<div class="container">
+    <div class="box-left">
+        <div class="navbar">
+            <h4>TẤT CẢ BÀI VIẾT</h4>
+            <div class="list">
+                <a id="brandstory" [class.active]="id === 'brandstory'" (click)="tabChange('brandstory', $event)"
+                    style="cursor: pointer">
+                    <p class="list-item">Câu chuyện thương hiệu</p>
+                </a>
+                <a id="ingredientstory" [class.active]="id === 'ingredientstory'"
+                    (click)="tabChange('ingredientstory', $event)" style="cursor: pointer">
+                    <p class="list-item">Câu chuyện nguyên liệu</p>
+                </a>
+                <a id="policydelivery" [class.active]="id === 'policydelivery'"
+                    (click)="tabChange('policydelivery', $event)" style="cursor: pointer">
+                    <p class="list-item">Chính sách bán hàng</p>
+                </a>
+                <a id="policypayment" [class.active]="id === 'policypayment'"
+                    (click)="tabChange('policypayment', $event)" style="cursor: pointer">
+                    <p class="list-item">Chính sách thanh toán</p>
+                </a>
+                <a id="policywarranty" [class.active]="id === 'policywarranty'"
+                    (click)="tabChange('policywarranty', $event)" style="cursor: pointer">
+                    <p class="list-item">Chính sách đổi trả, bảo hành</p>
+                </a>
+                <a id="policysecurity" [class.active]="id === 'policysecurity'"
+                    (click)="tabChange('policysecurity', $event)" style="cursor: pointer">
+                    <p class="list-item">Chính sách bảo mật</p>
+                </a>
+                <a id="instruction" [class.active]="id === 'instruction'" (click)="tabChange('instruction', $event)"
+                    style="cursor: pointer">
+                    <p class="list-item">Hướng dẫn mua hàng Online</p>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="box_right">
+        <div class="right_content" *ngIf="id === 'brandstory'">
+            <a class="sub-header">CÂU CHUYỆN THƯƠNG HIỆU CỦA BEAURITY</a>
+
+            <div class="tiltle-sub-content">
+                <p class="sub-header-2">
+                    I. Về thương hiệu Beaurity
+                </p>
+                <p class="content--item">
+                    Tên thương hiệu là sự kết hợp sâu sắc giữa 2 từ “Beauty”- có nghĩa là vẻ đẹp
+                    và “Purity”- sự tinh khiết. Beaurity mong muốn mang đến một thương hiệu thuần chay
+                    mang đầy ý nghĩa nhân văn, an toàn và từ các sản phẩm của Beaurity, khách hàng
+                    có thể tìm được vẻ đẹp đầy tinh khiết, tinh tế của mình.
+                </p>
+                <p class="content--item">
+                    Với slogan "Nhẹ nhàng như lá - Nâng niu mọi làn da", Beaurity luôn mong muốn
+                    khách hàng cảm thấy như được chăm sóc và nâng niu khi sử dụng sản phẩm.
+                    Beaurity luôn cố gắng sử dụng các thành phần từ thiên nhiên, dịu nhẹ nhưng
+                    hiệu quả trong việc cải thiện sức khỏe của da mà không gây cảm giác nặng nề khi
+                    sử dụng. Mục tiêu là đảm bảo mỗi khách hàng đều cảm thấy được chăm sóc và yêu chiều
+                    khi sử dụng sản phẩm của Beaurity.
+                </p>
+                <ul>Thông tin liên hệ Beaurity:
+                    <li>Đơn vị: Công ty TNHH Mỹ phẩm Thuần chay Beaurity</li>
+                    <li>Địa chỉ: Số 669, QL1, Linh Xuân, Thủ Đức, TP.HCM</li>
+                    <li>Hotline miễn phí: 077 432 8977</li>
+                    <li>Email: beaurityvietnam&commat;gmail.com</li>
+                </ul>
+
+                <p class="sub-header-2">II. Tầm nhìn của Beaurity</p>
+                <p class="content--item">
+                    Phát triển thương hiệu mỹ phẩm thuần chay từ những nguyên liệu đơn giản trong đời sống hằng ngày,
+                    trở thành thương hiệu dẫn đầu trong phân khúc mỹ phẩm thuần chay, từ đó xây dựng một thế giới
+                    nơi mà mọi người tìm thấy vẻ đẹp mộc và tự tin từ bên trong. Đồng thời, Beaurity cũng hướng đến
+                    việc xây dựng một cộng đồng mang vẻ đẹp thuần khiết, nơi mọi người có thể chia sẻ những câu
+                    chuyện, kiến thức và kinh nghiệm về làm đẹp tự nhiên, giúp khách hàng hiểu rõ hơn về tầm quan
+                    trọng của việc chăm sóc bản thân và tạo dựng sự tự tin và tự yêu thương.
+                </p>
+                <p class="sub-header-2">
+                    III. Sứ mệnh của Beaurity
+                </p>
+                <p class="content--item">
+                    Sứ mệnh của Beaurity không chỉ dừng lại ở việc cung cấp cho khách hàng những sản phẩm mỹ phẩm
+                    thuần chay an toàn, lành tính, mà còn tập trung vào việc truyền cảm hứng và khuyến khích khách
+                    hàng hướng đến vẻ đẹp mộc và thuần khiết bởi vẻ đẹp thực sự không chỉ đến từ việc che phủ
+                    khuyết điểm bên ngoài, mà là một quá trình chăm sóc toàn diện từ bên trong. Không những thế,
+                    Beaurity còn mong muốn lan tỏa những giá trị ý nghĩa, nhân văn mà thương hiệu mang lại.
+                    Với cam kết thực hiện các quy trình sản xuất và đóng gói bền vững, giảm thiểu tác động tiêu cực
+                    lên môi trường, không sử dụng các thành phần từ động vật, Beaurity hy vọng sẽ đóng góp tích cực
+                    vào việc bảo vệ và duy trì vẻ đẹp cho hành tinh chúng ta.
+
+                </p>
+            </div>
+        </div>
+
+        <div class="right_content" *ngIf="id === 'ingredientstory'">
+            <p class="sub-header"> BEAURITY | HÀNH TRÌNH ĐI TÌM NGUYÊN LIỆU</p>
+            <div class="tiltle-sub-content">
+                <p class="sub-header-2">
+                    Theo Dấu Chân Xanh - Hành trình tìm kiếm nguyên liệu trên vùng đất mới
+                </p>
+                <p class="content--item">
+                    Có thể các đồng lá chưa biết, với mong muốn được ấp ủ từ lâu là xây dựng một
+                    thương hiệu mỹ phẩm thuần chay với thành phần hoàn toàn từ thực vật an toàn lành tính
+                    cho mọi làn da, nhóm founder đã dành rất nhiều tâm huyết để có thể tìm ra được nguyên liệu
+                    phù hợp cho các sản phẩm của mình.
+                </p>
+                <p class="content--item">
+                    Khởi đầu cho hàng trình đi tìm nguyên liệu phù hợp, các founder đã phải chinh phục đỉnh núi
+                    Chúa với độ cao lên đến 1487m để lên tới được đỉnh Bà Nà Hills.
+                </p>
+                <p class="content--item">
+                    Tuy nhiên kiếp nạn đi tìm nguyên liệu không dừng lại dễ dàng như thế, ngày Beaurity đi
+                    khảo sát tìm nguyên liệu ở Đà Nẵng xảy ra áp thấp nhiệt đới. Dẫu vậy cũng đâu thể làm giảm
+                    đi sự nhiệt huyết của họ....
+                </p>
+                <p class="content--item">
+                    Và để xem là các founder đã khám phá được những loại thực vật nào ở Đà Nẵng và có
+                    tìm ra nguyên liệu phù hợp chưa, các bạn đồng lá đón xem ở từng hình nhé.
+                </p>
+            </div>
+
+            <table class="custom-table" style="width:50px">
+                <tr>
+                    <td><img src="assets/images/HT1.png" style="width: 250px;"></td>
+                    <td><img src="assets/images/HT2.png" style="width: 250px;"></td>
+                    <td><img src="assets/images/HT3.png" style="width: 250px;"></td>
+                </tr>
+                <tr>
+                    <td><img src="assets/images/HT4.png" style="width: 250px;"></td>
+                    <td><img src="assets/images/HT5.png" style="width: 250px;"></td>
+                    <td><img src="assets/images/HT6.png" style="width: 250px;"></td>
+                </tr>
+            </table>
+
+            <br>
+            <p class="sub-header"> BEAURITY | CÂU CHUYỆN NGUYÊN LIỆU THIÊN NHIÊN TỪ VÙNG ĐẤT VIỆT</p>
+            <div class="tiltle-sub-content">
+                <p class="sub-header-2">
+                    Vùng nguyên liệu 100% từ Hoàng Su Phì, Hà Giang, Việt Nam
+                </p>
+                <p class="content--item">
+                    Hoàng Su Phì là một huyện thuộc tỉnh Hà Giang, Việt Nam, nằm ở độ cao khoảng 1.000 - 1.500
+                    mét so với mực nước biển.
+                </p>
+                <p class="content--item">
+                    Tại Hoàng Su Phì, rau má được trồng phổ biến ở các khu vực ven đường bờ sông, đồi núi và
+                    các vùng có độ cao trên 800 mét so với mực nước biển. Vùng trồng rau má tại Hoàng Su Phì
+                    thường được chia làm hai loại: loại trồng ở đất trồng hoặc loại trồng trong rừng.
+                    Điểm đặc biệt là rau má ở Hoàng Su Phì được người dân trồng theo phương pháp hữu cơ,
+                    không sử dụng hóa chất, đảm bảo chất lượng và an toàn cho người tiêu dùng.
+                </p>
+                <p class="content--item">
+                    Trước khi cho ra đời sản phẩm, chúng tôi đã dành nhiều tháng để đi kiểm định chất
+                    lượng nguồn nguyên liệu tại các xã Thông Nguyên, xã Nậm Ty và xã Bản Luốc (Hà Giang).
+                    Chúng tôi sẽ thu mua nguyên liệu từ những hộ dân có trang trại rau má đạt chuẩn hữu cơ
+                    và đảm bảo đầy đủ tiêu chí để đưa vào sản xuất sản phẩm.
+                </p>
+                <p class="content--item">
+                    Tính đến nay, chúng tôi đã thu mua được hơn 1000 tấn rau má từ 40 hộ dân khác nhau.
+                    Chúng tôi thực sự vui mừng và tự hào vì có thể sử dụng và tận dụng nguồn nguyên liệu sẵn có
+                    của Việt Nam.
+                </p>
+                <table class="custom-table">
+                    <tr>
+                        <img src="assets/images/ingredientstory.png" style="width: 350px;">
+                    </tr>
+
+                </table>
+            </div>
+        </div>
+
+        <div class="right_content" *ngIf="id === 'policydelivery'">
+            <p class="sub-header">CHÍNH SÁCH BÁN HÀNG</p>
+            <p class="content--item">
+                Beaurity có dịch vụ giao hàng tận nơi trên toàn quốc, áp dụng cho khách mua
+                hàng trên Website, Fanpage và gọi điện thoại vào Hotline của Beaurity. Đơn hàng sẽ
+                được chuyển phát đến địa chỉ khách hàng cung cấp thông qua đơn vị vận chuyển trung
+                gian là GIAO HÀNG TIẾT KIỆM hoặc 247EXPRESS. Đặc biệt, thông tin hóa đơn dán bên
+                ngoài kiện hàng luôn luôn có logo của thương hiệu để nhận biết các sản phẩm
+                là chính hãng.
+            </p>
+            <div class="tiltle-sub-content">
+                <p class="sub-header-2">
+                    I. Chính sách giá
+                </p>
+                <p class="content--item">
+                    Giá sản phẩm niêm yết tại Website là giá đã bao gồm thuế theo quy định pháp luật hiện hành,
+                    phí đóng gói và các chi phí khác liên quan đến việc mua hàng trừ các chi phí phát sinh khác
+                    được xác nhận qua Hotline hoặc Email của Beaurity và được sự chấp thuận của khách hàng trong
+                    quá trình xác nhận đơn đặt hàng, giao nhận hàng hoá.
+                </p>
+
+                <p class="sub-header-2">II. Thời gian giao hàng</p>
+                <p class="content--item">
+                <ul>
+                    <li>Đơn hàng nội thành TP.HCM: Thời gian giao hàng là 2-3 ngày sau khi đặt hàng.</li>
+                    <li>Đơn hàng ở ngoại thành TP.HCM và các tỉnh thành khác: Thời gian là 2-5 ngày đối với khu vực
+                        trung tâm tỉnh thành phố và 5-6 ngày đối với khu vực huyện, xã, thị trấn…</li>
+                    <li>Tuy nhiên, vẫn có những giới hạn và sự chậm trễ do nguyên nhân khách quan
+                        như lễ, tết, địa chỉ nhận hàng khó tìm, sự chậm trễ từ dịch vụ chuyển phát,…
+                        Beaurity mong quý khách thông cảm vì những lý do ngoài sự chi phối của chúng tôi.</li>
+                    <li>Trường hợp có sự chậm trễ khi giao hàng xảy ra, Beaurity sẽ thông báo ngay
+                        đến bạn đồng thời sẽ tiếp tục giao hàng hoặc hỗ trợ huỷ đơn hàng nếu bạn
+                        muốn. Chúng tôi sẽ không chịu trách nhiệm do việc giao hàng chậm trễ trừ
+                        trách nhiệm hoàn trả tiền nếu bạn đã thanh toán mà chưa nhận được sản phẩm.</li>
+                </ul>
+
+            </div>
+        </div>
+
+        <div class="right_content" *ngIf="id === 'policypayment'">
+            <p class="sub-header">CHÍNH SÁCH THANH TOÁN</p>
+            <div class="content--item">
+                Khách hàng có thể lựa chọn 1 trong 3 hình thức thanh toán dưới đây:
+                <br>
+
+                <ul>I. Thanh toán khi nhận hàng (COD):
+                    <li>Bước 1: Người mua tìm hiểu thông tin về sản phẩm được đăng tải</li>
+                    <li>Bước 2: Người mua đặt hàng trực tuyến, chọn hình thức Thanh toán khi nhận hàng</li>
+                    <li>Bước 3: Beaurity xác nhận thông tin người nhận</li>
+                    <li>Bước 4: Beaurity chuyển hàng cho đơn vị giao hàng</li>
+                    <li>Bước 5: Người nhận nhận hàng, kiểm tra và thanh toán</li>
+                </ul>
+                <ul>II. Thanh toán qua ngân hàng:
+                    <li>Bước 1: Người mua tìm hiểu thông tin về sản phẩm được đăng tải</li>
+                    <li>Bước 2: Người mua đặt hàng trực tuyến, chọn hình thức Thanh toán qua ngân hàng</li>
+                    <li>Bước 3: Khách hàng đang thao tác đặt hàng tại website, hệ thống chuyển
+                        sang giao diện thanh toán của bên thứ 3. Khách hàng điền các thông tin theo
+                        hướng dẫn để hoàn tất việc đặt hàng. Hệ thống sẽ thông báo mã đơn hàng sau khi thanh toán thành
+                        công.</li>
+                    <li>Bước 4: Beaurity xác nhận thông tin người nhận</li>
+                    <li>Bước 4: Beaurity chuyển hàng cho đơn vị giao hàng</li>
+                    <li>Bước 5: Người nhận nhận hàng và kiểm tra</li>
+                </ul>
+                <ul>III. Thanh toán qua ví Momo:
+                    <li>Bước 1: Người mua tìm hiểu thông tin về sản phẩm được đăng tải</li>
+                    <li>Bước 2: Người mua đặt hàng trực tuyến, chọn hình thức Thanh toán qua ngân hàng</li>
+                    <li>Bước 3: Khách hàng đang thao tác đặt hàng tại website, hệ thống chuyển
+                        sang giao diện thanh toán của bên thứ 3. Khách hàng điền các thông tin theo
+                        hướng dẫn để hoàn tất việc đặt hàng. Hệ thống sẽ thông báo mã đơn hàng sau khi thanh toán thành
+                        công.</li>
+                    <li>Bước 4: Beaurity xác nhận thông tin người nhận</li>
+                    <li>Bước 4: Beaurity chuyển hàng cho đơn vị giao hàng</li>
+                    <li>Bước 5: Người nhận nhận hàng và kiểm tra</li>
+                </ul>
+
+                <p class="sub-header">
+                    Quy định về hoàn trả tiền khi thanh toán trực tuyến</p>
+                <p class="content--item">
+                    Trong trường hợp quý khách hàng đã mua hàng & thanh toán trực tuyến thành công nhưng dư tiền,
+                    hoặc trả sản phẩm, Beaurity sẽ hoàn tiền vào thẻ quý khách đã dùng để thanh toán, theo thời hạn
+                    như sau:
+                </p>
+                <p class="content--item">
+                <ul>
+                    <li><b>Đối với thanh toán qua ngân hàng:</b> Thời gian khách hàng nhận được tiền hoàn từ
+                        5 - 7 ngày (trừ Thứ 7, Chủ Nhật và Ngày lễ) kể từ khi Beaurity nhận được đề nghị của
+                        khách hàng. Nếu qua thời gian trên không nhận được tiền, Beaurity sẽ hỗ trợ liên hệ
+                        ngân hàng của khách hàng để giải quyết.</li>
+                </ul>
+                <ul>
+                    <li><b>Đối với ví điện tử MoMo: </b> Thời gian khách hàng nhận được tiền hoàn từ 3 - 5
+                        ngày kể từ khi Beaurity nhận được đề nghị của khách hàng. Nếu qua thời gian trên
+                        không nhận được tiền, Beaurity sẽ hỗ trợ liên hệ ngân hàng của khách hàng để giải quyết.
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="right_content" *ngIf="id === 'policywarranty'">
+            <p class="sub-header">CHÍNH SÁCH ĐỔI TRẢ, BẢO HÀNH</p>
+            <p class="content--item">
+                Quy trình giao nhận, đổi trả, bảo hành sản phẩm
+            </p>
+            <ul>
+                <li>
+                    Trong quá trình giao nhận hàng, nếu quý khách không có mặt trong đợt nhận hàng thì đơn vị
+                    vận chuyển sẽ liên lạc lại với quý khách để hẹn thời gian giao lại hàng (đối đa 2 lần hẹn).
+                    Sau 2 lần hẹn giao lại nhưng vẫn không giao thành công thì đơn vị vận chuyển sẽ hoàn hàng về cho
+                    Beaurity và chúng tôi sẽ hoàn trả các chi phí mà bạn đã thanh toán trong vòng 15 ngày làm việc.
+                </li>
+
+                <li>
+                    Trường hợp việc giao và nhận hàng không thành công do không thể liên lạc được với quý khách
+                    trong vòng 3 ngày, đơn vị vận chuyển sẽ hoàn hàng về lại cho Beaurity và chúng tôi sẽ thông báo đến
+                    bạn qua thông tin liên lạc mà bạn đã cung cấp về việc hủy đơn hàng đồng thời hoàn trả các chi phí
+                    mà bạn đã thanh toán trong vòng 15 ngày làm việc.
+                </li>
+
+                <li>
+                    Khi nhận sản phẩm, quý khách vui lòng kiểm tra kỹ tính nguyên vẹn, số lượng sản phẩm theo đơn
+                    đặt hàng trước khi nhận. Việc bạn ký xác nhận hoặc ảnh chụp nhận hàng của bạn do đơn vị vận chuyển
+                    thu thập trong quá trình giao nhận là chứng từ xác minh chúng tôi đã hoàn thành nghĩa vụ giao hàng
+                    đúng với đơn đặt hàng sau khi được bạn kiểm tra ngoại quan.
+                </li>
+
+                <li>
+                    Đơn vị vận chuyển có trách nhiệm giao hàng và thu thập các chứng từ trong quá trình giao nhận
+                    như chữ ký xác nhận hoặc ảnh chụp nhận hàng của khách hàng và lưu trữ theo quy định của pháp luật.
+                    Chúng tôi cam kết dùng mọi biện pháp nhằm bảo mật những chứng từ, hình ảnh chúng tôi thu thập của
+                    khách hàng và chỉ sử dụng cho mục đích lưu trữ, giải quyết khiếu nại, hỗ trợ khách hàng hoặc các
+                    mục đích được cho là đúng pháp luật và cần thiết mà không sử dụng cho mục đích thương mại hay vụ
+                    lợi khác.
+                </li>
+
+                <li>
+                    Quý khách cần quay lại video mở hàng và kiểm tra chất lượng sản phẩm để làm bằng chứng trong
+                    trường hợp muốn liên hệ lại với Beaurity nhằm đổi, trả, bảo hành sản phẩm hoặc khiếu nại các vấn đề
+                    liên quan đến sản phẩm mà bạn đã mua.
+                </li>
+
+                <li>
+                    Beaurity chỉ nhận đổi trả, bảo hành sản phẩm khi lỗi đến từ nhà sản xuất hoặc do quá trình vận
+                    chuyển. Chúng tôi sẽ liên lạc với bạn để hướng dẫn qui cách đóng gói hàng hoàn trả đồng thời thông
+                    báo đơn vị thu hồi và gửi sản phẩm tương đương để bổ sung, thay thế theo chính sách giao hàng quy
+                    định như trên tính từ ngày nhận được yêu cầu đổi trả, bảo hành sản phẩm, đồng thời chúng tôi sẽ chi
+                    trả chi phí vận chuyển cho việc đổi trả, bảo hành này. Lưu ý, chúng tôi chỉ hỗ trợ đổi trả hàng với
+                    điều kiện yêu cầu đổi trả không quá 03 ngày kể từ ngày bạn nhận được hàng. Thời gian xử lý hoàn trả,
+                    bảo hành được thực hiện tối đa trong vòng 14 ngày tính từ ngày nhận được yêu cầu của bạn.
+                </li>
+
+                <li>
+                    Đơn hàng của bạn sẽ được đóng gói theo tiêu chuẩn của Beaurity. Ngoài tiêu chuẩn gói hàng theo
+                    quy định, nếu bạn có nhu cầu đóng gói kiện hàng theo yêu cầu đặc biệt khác, vui lòng liên hệ với
+                    chúng tôi và chi trả thêm phí theo thoả thuận.
+                </li>
+
+                <li>
+                    Quý khách có thể thanh toán khi nhận hàng (COD) hoặc có thể chọn phương thức thanh toán trực
+                    tuyến qua cổng thanh toán Alepay hoặc Ví Momo theo hướng dẫn tại Mục “Hướng dẫn mua hàng” được
+                    công bố trên website.
+                </li>
+
+                <li>
+                    Mọi thông tin về việc thay đổi hay hủy bỏ đơn hàng, quý khách cần thông báo sớm để chúng tôi
+                    có thể hủy hoặc chỉnhh sửa đơn hàng cho bạn kịp thời.
+                </li>
+
+                <li>
+                    Để kiểm tra mọi thông tin liên quan đến đơn hàng hoặc tình trạng đơn hàng của quý khách,
+                    xin vui lòng nhắn tin vào Fanpage, gửi Email hoặc gọi số Hotline và cung cấp tên, số điện thoại
+                    hoặc mã đơn hàng để được chúng tôi kiểm tra và hỗ trợ sớm nhất.
+                </li>
+            </ul>
+        </div>
+
+        <div class="right_content" *ngIf="id === 'policysecurity'">
+            <a class="sub-header">CHÍNH SÁCH BẢO MẬT</a>
+            <p class="content--item">
+                Beaurity cam kết nghiêm túc thực hiện trách nhiệm của mình liên quan đến bảo mật thông tin,
+                quyền riêng tư của khách hàng khi bạn tham gia giao dịch với chúng tôi theo các quy định
+                của pháp luật Việt Nam. Chúng tôi nhận biết tầm quan trọng của dữ liệu cá nhân mà bạn đã
+                tin tưởng cung cấp và chúng tôi có trách nhiệm quản lý, thực hiện các biện pháp để bảo vệ
+                trong quá trình sử dụng, tiết lộ với bất kỳ bên thứ ba nào trong phạm vi cho phép và xử lý
+                dữ liệu cá nhân của bạn một cách thích hợp. Beaurity tạo ra chính sách bảo mật này để quý
+                khách có thể hiểu hơn về những cam kết mà Beaurity thực hiện trong việc thu thập, sử dụng và
+                chia sẻ thông tin cũng như việc bảo mật thông tin khách hàng.
+            </p>
+            <ul>I. Mục đích, phạm vi sử dụng và thời gian lưu trữ thông tin
+                <ol type="1">
+                    <li>
+                        Mục đích, phạm vi sử dụng thông tin:
+                        <ul type="disc">
+                            <li>
+                                Để phục vụ quản lý, điều hành, xem xét và/hoặc xử lý đơn đặt hàng/giao dịch của
+                                bạn với chúng tôi hoặc với các bên thứ ba thông qua các đơn vị dịch vụ trung gian.
+                            </li>
+
+                            <li>
+                                Để giải quyết hoặc tạo điều kiện thuận lợi cho dịch vụ chăm sóc khách hàng,
+                                chúng tôi có thể sử dụng các thông tin này để hỗ trợ kịp thời theo các yêu cầu từ bạn.
+                            </li>
+
+                            <li>
+                                Để phục vụ mục đích xác minh, đánh giá pháp lý hoặc để nhận biết khách hàng.
+                            </li>
+
+                            <li>
+                                Để lập số liệu thống kê, nghiên cứu nhằm duy trì sổ sách nội bộ hoặc nhằm mục đích
+                                phát triển, nâng cao chất lượng phục vụ khách hàng.
+                            </li>
+
+                            <li>
+                                Để đáp ứng các thủ tục pháp lý hoặc các yêu cầu của cơ quan nhà nước có thẩm quyền
+                                khi được yêu cầu mà việc tiết lộ thông tin là cần thiết, đúng với pháp luật.
+                            </li>
+
+                            <li>
+                                Chúng tôi sẽ có thể thu thập, sử dụng, xử lý dữ liệu cá nhân của bạn phụ thuộc vào
+                                từng hoàn cảnh cụ thể mà mục đích đó có thể không được liệt kê ở trên. Tuy nhiên,
+                                Beaurity sẽ thông báo cho bạn về mục đích đó tại thời điểm chúng tôi xin sự cho phép của
+                                bạn,
+                                trừ khi được phép theo các quy định của pháp luật.
+                            </li>
+                        </ul>
+
+                    </li>
+
+                    <li>
+                        Những người hoặc tổ chức có thể được tiếp cận với thông tin đó:
+                        <ul type="disc">
+                            <li>
+                                Beaurity biết rằng việc bảo mật thông tin cá nhân của khách hàng là rất quan trọng.
+                                Chúng tôi sẽ áp dụng các biện pháp để bảo mật thông tin của bạn. Chúng tôi chỉ cho
+                                phép nhân viên của Beaurity, các đối tác của chúng tôi là các đơn vị dịch vụ trung gian
+                                như dịch vụ vận chuyển, dịch vụ thanh toán trung gian hoặc theo lệnh của tòa án hay
+                                bất kỳ cơ quan nhà nước có thẩm quyền nhằm (i) tuân thủ quy định của pháp luật;
+                                (ii) thực thi nghĩa vụ theo các điều khoản quy định tại hợp đồng/giao dịch;
+                                (iii) đáp ứng các yêu cầu của bạn về dịch vụ khách hàng;
+                                (iv) bảo vệ quyền, tài sản hoặc sự an toàn của chúng tôi và của bạn.
+                            </li>
+
+                            <li>
+                                Chúng tôi sẽ có thể thu thập, sử dụng, tiết lộ hoặc xử lý dữ liệu cá nhân của bạn
+                                phụ thuộc vào từng hoàn cảnh cụ thể mà những cá nhân, tổ chức đó có thể không được
+                                liệt kê ở trên. Tuy nhiên, Beaurity sẽ thông báo cho bạn về người tiếp cận và mục đích
+                                đó tại thời điểm chúng tôi xin sự cho phép của bạn, trừ khi được phép theo quy định
+                                của pháp luật. Các đối tác của chúng tôi cam kết chỉ sử dụng các thông tin này vào
+                                mục đích thực thi nghĩa vụ, có lợi cho khách hàng mà không được sử dụng vào mục đích
+                                thương mại hay mục đích khác khi chưa có sự đồng ý của chúng tôi và của bạn.
+                            </li>
+
+                        </ul>
+                    </li>
+
+                    <li>
+                        Chúng tôi sẽ có thể thu thập dữ liệu cá nhân của bạn khi:
+                        <ul type="disc">
+                            <li>
+                                Bạn đăng ký tài khoản trên Website với chúng tôi;
+                            </li>
+
+                            <li>
+                                Khi bạn đồng ý hoặc cung cấp các tài liệu, thông tin liên quan trong lúc tương tác
+                                giữa bạn với chúng tôi bao gồm nhưng không giới hạn qua các cuộc gọi điện thoại từ số
+                                hotline của Beaurity (có thể được ghi âm lại), email, ứng dụng truyền thông xã hội,
+                                thư từ, gặp gỡ trực tiếp.
+                            </li>
+
+                            <li>
+                                Khi bạn liên kết tài khoản Beaurity với tài khoản mạng xã hội, các tài khoản bên
+                                ngoài khác hoặc sử dụng các tính năng mạng xã hội phù hợp với các chính sách của nhà
+                                cung cấp.
+                            </li>
+
+                            <li>
+                                Khi bạn cung cấp ý kiến phản hồi hoặc gửi khiếu nại cho chúng tôi.
+                            </li>
+
+                            <li>
+                                Các trường hợp trên không nhằm mục đích liệt kê đầy đủ các trường hợp mà chỉ
+                                đưa ra một số trường hợp phổ biến về thời điểm dữ liệu cá nhân của bạn có thể bị
+                                thu thập.
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        Phạm vi thu thập dữ liệu:
+                        <ul type="disc">
+                            <li>
+                                Dữ liệu cá nhân mà Beaurity có thể thu thập bao gồm: họ tên; địa chỉ email;
+                                địa chỉ giao nhận hàng hóa và/hoặc thanh toán; tài khoản ngân hàng và thông tin
+                                thanh toán; số điện thoại; hình ảnh, âm thanh hoặc video mở hàng/kiểm tra hàng;
+                                các thông tin khác về người dùng khi bạn đăng nhập để sử dụng các dịch vụ liên kết
+                                chính thống tại Website của chúng tôi hoặc bất kỳ thông tin nào mà chúng tôi đã thông
+                                báo xin sự cung cấp và cho phép từ bạn.
+                            </li>
+
+                            <li>
+                                Nếu bạn không muốn chúng tôi thu thập thông tin/dữ liệu cá nhân nói trên, bạn có
+                                thể không cung cấp hoặc vào bất kỳ lúc nào bằng cách thông báo bằng văn bản hoặc qua
+                                email đến chúng tôi. Tuy nhiên, lưu ý rằng việc từ chối hoặc hủy bỏ cho phép chúng tôi
+                                thu thập, sử dụng hoặc xử lý dữ liệu cá nhân của bạn có thể làm ảnh hưởng đến giao
+                                dịch của bạn với chúng tôi và/hoặc ảnh hưởng đến việc bạn sử dụng các dịch vụ với nền
+                                tảng được liên kết tại Website.
+                            </li>
+
+                            <li>
+                                Chúng tôi không cố ý thu thập thông tin cá nhân của trẻ em dưới 13 tuổi mà không
+                                có sự kiểm soát của cha mẹ hoặc người giám hộ hợp pháp. Nếu quý khách dưới 13 tuổi,
+                                xin vui lòng không cung cấp cho chúng tôi bất kỳ thông tin cá nhân gì. Nếu chúng tôi
+                                xác định được người dùng có độ tuổi dưới 13 và đã gửi thông tin cá nhân mà không có sự
+                                kiểm soát của người giám hộ, chúng tôi sẽ xoá bỏ thông tin cá nhân này khỏi dữ liệu
+                                của chúng tôi mà không cần thông báo trước.
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        Thời gian lưu trữ và cam kết bảo mật:
+                        <ul type="disc">
+                            <li>
+                                Thời gian lưu trữ là 2 năm kể từ thời điểm đơn hàng cuối cùng phát sinh.
+                            </li>
+
+                            <li>
+                                Chúng tôi thực hiện các biện pháp bảo mật khác nhau và luôn nỗ lực để đảm bảo sự
+                                an toàn dữ liệu cá nhân của bạn trên các hệ thống quản lý của chúng tôi. Dữ liệu cá
+                                nhân của bạn sẽ được lưu trữ bằng các mạng bảo mật và chỉ có thể truy cập được bởi
+                                một số nhân viên được quyền truy cập đặc biệt. Tuy nhiên, chúng tôi không thể có sự
+                                đảm bảo an ninh tuyệt đối bởi các sự cố phát sinh, trường hợp có sự cố xảy ra chúng
+                                tôi sẽ dùng mọi biện pháp để khắc phục và hạn chế rủi ro nhất.
+                            </li>
+
+                            <li>
+                                Chúng tôi cam kết thực hiện duy trì dữ liệu cá nhân đúng quy định của pháp luật.
+                                Trong trường hợp cần thiết và trong phạm vi cho phép của pháp luật, chúng tôi có thể
+                                tiêu hủy dữ liệu cá nhân của bạn một cách an toàn mà không cần thông báo trước.
+                            </li>
+                        </ul>
+                    </li>
+                </ol>
+            </ul>
+            <ul>II.
+                Thương hiệu và bản quyền</ul>
+            <p class="content--item">
+                Mọi quyền sở hữu trí tuệ (đã đăng ký hoặc chưa đăng ký) bao gồm nhưng không giới hạn nội
+                dung thông tin và tất cả các thiết kế, văn bản, đồ họa, phần mềm, hình ảnh, video,
+                âm nhạc, âm thanh, biên dịch phần mềm, mã nguồn và phần mềm cơ bản đều là tài sản của
+                chúng tôi. Toàn bộ nội dung của trang web được bảo vệ bởi luật pháp Việt Nam và các công
+                ước quốc tế.
+            </p>
+
+            <ul>III. Quy định sửa đổi thông tin và xoá tài khoản</ul>
+            <ul type="disc">
+                <li>
+                    Nếu quý khách muốn thay đổi các thông tin cá nhân trên tài khoản đã đăng ký,
+                    quý khách có thể đăng nhập và cập nhật, sửa đổi trên tài khoản của mình ở website
+                    beaurityvietnam.com hoặc liên hệ với chúng tôi qua email, số hotline của Beaurity để được
+                    hướng dẫn và hỗ trợ.
+                </li>
+                <li>
+                    Nếu quý khách muốn xoá tài khoản và toàn bộ thông tin cá nhân, lịch sử mua hàng
+                    trên website, vui lòng liên hệ với chúng tôi qua email: cskh&commat;beaurityvietnam.com
+                </li>
+            </ul>
+
+            <ul>IV. Thay đổi về chính sách</ul>
+            <p class="content--item">
+                Chính sách bảo mật thông tin này có thể được thay đổi để phù hợp với nhu cầu của
+                Beaurity cũng như của khách hàng và phù hợp với các quy định của pháp luật mà không
+                cần thông báo trước (nếu có).
+            </p>
+        </div>
+
+        <div class="right_content" *ngIf="id === 'instruction'">
+            <p class="sub-header">HƯỚNG DẪN MUA HÀNG ONLINE</p>
+            <p class="content--item">
+            <ul>
+                <li> <b>Bước 1. Tìm sản phẩm tại kính lúp hoặc trong mục sản phẩm sẽ có các danh mục
+                        để chọn ra sản phẩm bạn cần.</b>
+                    <p class="imgbg"><img src="assets/images/B1.png" style="width: 1000px;"></p>
+                </li>
+                <li><b>Bước 2. Đọc kỹ các quy định và chính sách được công bố tại website và tham khảo
+                        các thông tin sản phẩm và bấm thêm vào giỏ.</b>
+                    <p class="imgbg"><img src="assets/images/B2.png" style="width: 1000px;"></p>
+                </li>
+                <li><b>Bước 3. Sau khi đã chọn xong các sản phẩm cần mua, bấm vào giỏ hàng trên góc
+                        phải để đến bước thanh toán</b>
+                    <p class="imgbg"><img src="assets/images/B3.png" style="width: 1000px;"></p>
+                    <p class="imgbg"><img src="assets/images/B4.png" style="width: 1000px;"></p>
+                </li>
+                <li><b>Bước 4. Kiểm tra lại số lượng, mặt hàng, phương thức thanh toán
+                        tổng tiền của đơn hàng và bấm vào nút đặt hàng.</b>
+                    <p class="imgbg"><img src="assets/images/B5.png" style="width: 1000px;"></p>
+                    <p class="imgbg"><img src="assets/images/B6.png" style="width: 1000px;"></p>
+                    <p class="imgbg"><img src="assets/images/B7.png" style="width: 1000px;"></p>
+                    <p class="imgbg"><img src="assets/images/B8.png" style="width: 1000px;"></p>
+                </li>
+                <li><b>Bước 5. Xem chi tiết đơn hàng (nếu muốn)</b>
+                    <p class="imgbg"><img src="assets/images/B9.png" style="width: 1000px;"></p>
+                    <p class="imgbg"><img src="assets/images/B10.png" style="width: 1000px;"></p>
+                    <p class="imgbg"><img src="assets/images/B11.png" style="width: 1000px;"></p>
+                    <p class="imgbg"><img src="assets/images/B12.png" style="width: 1000px;"></p>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

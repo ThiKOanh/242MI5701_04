@@ -1,0 +1,134 @@
+<!--SECTION 1-->
+<div class="home_banner">
+  <div>
+    <a>&nbsp;</a>
+  </div>
+  <div class="bar">
+    <a><img src="assets/images/bar.png"></a>
+  </div>
+  <div>
+    <a>&nbsp;</a>
+  </div>
+  <div class="content">
+    <a>&nbsp;</a>
+    <a class="bold">CÙNG BEAURITY</a>
+    <a class="bold">SỐNG XANH NHƯ LÁ</a>
+    <p style="font-size: 18px;" align="justify">Tại Việt Nam, thực vật đặc biệt là lá cây hết sức phong phú, nếu chúng
+      ta biết cách đưa chúng vào sử dụng trong mỹ phẩm thuần chay thì sẽ giúp được người nông dân kiếm thêm được thu
+      nhập, nâng cao chất lượng nông sản của họ và nâng cao giá trị của mỹ phẩm Việt. Đó là lý do thôi thúc BEAURITY
+      nghiên cứu và cho ra đời những sản phẩm làm đẹp từ lá cây với 90% có nguồn gốc từ các hộ nông dân Việt Nam, an
+      toàn, lành tính, không sử dụng thành phần từ động vật và nói không với thử nghiệm trên động vật, có thể áp dụng
+      trên da của mọi lứa tuổi.</p>
+  </div>
+  <div class="image-container">
+    <img src="assets/images/xanhnhula.png" style="width: 350px;">
+  </div>
+</div>
+
+<!--SECTION 2-->
+<div class="sanpham">
+  <br />
+  <a class="bold">SẢN PHẨM BEAURITY</a>
+  <a class="button" id="product">
+    <a routerLink="/app-category">
+      <button type="submit">Xem tất cả</button>
+    </a>
+  </a>
+  <br />
+</div>
+
+<!--SECTION 3-->
+<p style="font-weight: bold; font-size: 30px; color: #2D982A; text-align: center;">SẢN PHẨM MỚI</p>
+<div class="danhmucproduct">
+  <div class="product" *ngFor="let cosmetic of cosmetics | slice:0:5">
+    <div class="product-item">
+      <div (click)="viewCosmeticDetail(cosmetic)">
+        <div class="product-item--img">
+          <img src="{{ cosmetic.Image }}" style="width: 180px;">
+        </div>
+        <p class="product-item--info">{{ cosmetic.Name }}</p>
+        <p class="product-item--price">{{ cosmetic.Price }} VNĐ</p>
+      </div>
+      <button class="product-item--add" (click)="addToCart(cosmetic)">Thêm vào giỏ hàng</button>
+    </div>
+  </div>
+</div>
+
+<!--SECTION 4-->
+<p style="font-weight: bold; font-size: 30px; color: #2D982A; text-align: center;">SẢN PHẨM NỔI BẬT</p>
+<div class="danhmucproduct">
+  <div class="product" *ngFor="let cosmetic of randomFeaturedCosmetics">
+    <div class="product-item">
+      <div (click)="viewCosmeticDetail(cosmetic)">
+        <div class="product-item--img">
+          <img src="{{ cosmetic.Image }}" style="width: 180px;">
+        </div>
+        <p class="product-item--info">{{ cosmetic.Name }}</p>
+        <p class="product-item--price">{{ cosmetic.Price }} VNĐ</p>
+      </div>
+      <button class="product-item--add" (click)="addToCart(cosmetic)">Thêm vào giỏ hàng</button>
+    </div>
+  </div>
+  <br />
+</div>
+
+<!--SECTION 5-->
+<div class="feedback">
+  <br />
+  <a class="bold">FEEDBACK KHÁCH HÀNG</a>
+  <br />
+  <div class="feedbackdetails">
+    <div></div>
+    <div class="image-container">
+      <a><img src="assets/images/fb1.png" style="width: 400px;"></a>
+    </div>
+    <div></div>
+    <div align="justify">
+      <br />
+      <a>Với giá thành phù hợp với túi tiền của phần đông khách hàng, chất lượng sản phẩm tốt, được sản xuất hoàn toàn
+        trong nước, Beaurity xứng đáng là một trong những thương hiệu Việt đang góp phần đưa mĩ phẩm Việt dần thu hẹp
+        khoảng cách với thị trường mĩ phẩm trên thế giới. Ngoài chất lượng tốt, giá tiền hợp lý, mình còn rất trân
+        trọng những nỗ lực mà hãng cố gắng đưa đến cho cộng đồng, nhất là trong vấn đề bảo vệ môi trường, sống xanh và
+        mỹ phẩm thuần chay không thử nghiệm trên động vật.</a>
+    </div>
+    <div></div>
+  </div>
+  <br />
+</div>
+
+<!--SECTION 6-->
+<div id="chungnhanAnToan" class="chungnhan" name="chungnhan">
+  <br />
+  <a class="bold">CHỨNG NHẬN AN TOÀN</a>
+  <div class="chungnhandetail">
+    <div>&nbsp;</div>
+    <div class="content">
+      <a><img src="assets/images/leaping_bunny.svg" style="width: 120px;"></a>
+      <b style="font-size: 20px;">Leaping Bunny</b>
+      <b>CHƯƠNG TRÌNH LEAPING BUNNY</b>
+      <p align="justify">Chương trình Leaping Bunny của tổ chức Cruelty Free International được xem là "tiêu chuẩn
+        vàng" toàn cầu cho
+        các sản phẩm không thử nghiệm trên động vật.</p>
+    </div>
+    <div>&nbsp;</div>
+    <div class="content">
+      <a><img src="assets/images/vegan_society.svg" style="width: 120px;"></a>
+      <b style="font-size: 20px;">The Vegan Society</b>
+      <b>HIỆP HỘI THUẦN CHAY QUỐC TẾ</b>
+      <p align="justify">The Vegan Society (Hiệp hội thuần chay quốc tế) là một trong những chứng nhận uy tín xác thực
+        cho các sản phẩm
+        không có thành phần từ động vật và không thử nghiệm trên động vật.</p>
+    </div>
+    <div>&nbsp;</div>
+    <div class="content">
+      <a><img src="assets/images/Peta.svg" style="width: 120px;"></a>
+      <b style="font-size: 20px;">PETA</b>
+      <b>ANIMAL TEST-FREE & VEGAN</b>
+      <p align="justify">Chương trình Beauty Without Bunnies của tổ chức bảo vệ quyền lợi động vật toàn cầu PETA là
+        chương trình bảo vệ
+        và cam kết không có sự tàn ác đối với động vật uy tín trên thế giới.</p>
+    </div>
+    <div>&nbsp;</div>
+    <br />
+  </div>
+</div>

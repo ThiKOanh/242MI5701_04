@@ -1,0 +1,54 @@
+<div class="main">
+    <div class="main-left">
+    </div>
+
+    <div class="main-right">
+        <div class="admin-info">
+            <span class="material-symbols-outlined">Notifications</span>
+            <span class="admin-name">Admin</span>
+            <img src="assets/admin-avatar.png" class="admin-ava">
+        </div>
+
+        <div class="page-title">
+            <div>
+                <strong>Danh mục sản phẩm</strong>
+                <button id="add" (click)="addCatLevel1()" class="add-button">Thêm danh mục</button>
+            </div>
+            <div class="page-search">
+                <input type="text" placeholder="  Search..." [(ngModel)]="keyword" name="keyword" required>
+                <span class="material-symbols-outlined">search</span>
+            </div>
+        </div>
+
+        <div class="page-body">
+            <div class="category_list">
+                <table class="category_list__table">
+                    <thead class="table_title">
+                        <th>STT</th>
+                        <th>Ảnh</th>
+                        <th>Tên danh mục</th>
+                        <th>Mô tả</th>
+                        <th></th>
+                    </thead>
+                    <tbody class="table_content">
+                        <tr class="table_data" *ngFor="let category of categories; let i = index">
+                            <td class="stt-column">{{ i + 1 }}</td>
+                            <td class="cate_image">
+                                <img src="{{category.Image}}">
+                            </td>
+                            <td> {{category.Name}}</td>
+                            <td> {{category.Description}} </td>
+                            <td class="pro_action">
+                                <button id="visual" (click)='editCatLevel1(category)'>
+                                    <span class="material-icons-outlined">edit</span>
+                                </button>
+                                <button id="delete" (click)="deleteCategory(category._id)"><span
+                                        class="material-icons-outlined">delete</span></button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

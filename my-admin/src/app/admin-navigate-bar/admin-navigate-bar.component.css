@@ -1,0 +1,112 @@
+*{
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+.navigate__bar{
+    position: fixed;
+    background: #c0e9beb5;
+    top: 0;
+    left: 0; 
+    width: 15%;
+    height: 100%;
+    padding: 20px 0;
+}
+
+.nav__title{
+    display: block;
+    text-align: center;
+   
+}
+.nav__title img{
+    border-radius: 10px;
+    max-width: 70%;
+    height: auto; 
+    display: block; 
+    margin: auto; 
+}
+
+.nav__content {
+    display: block;
+    list-style: none;
+    text-decoration: none;
+    padding-inline-start: 20px;
+    padding-right: 10px;
+    margin-top: 30px;
+}
+
+.navigate__bar--link{
+	display: flex;
+    align-items: center;
+	color:#024700;
+	font-size: 16px;
+    text-decoration: none;
+    margin: 8px 0;
+}
+li{
+    height: fit-content;
+    padding: 1px 0;
+    margin: 5px 0;
+}
+.nav__content li:focus{
+    background-color: #fdfdfd7e !important;
+    color: #225730 !important;
+    font-weight: 700 !important;  
+}
+ul li:hover{
+    background-color: #ffffff3f;  
+}
+#dropdown-tab{
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+.dropdown-list{
+    visibility: hidden;
+    display: none;
+    cursor: pointer;
+}
+.item--dropdown{
+    color: #024700 !important;
+    text-decoration: none;
+    padding-bottom: 10px;
+    padding-top: 5px;
+    padding-left: 40px;
+}
+.item--dropdown:hover{
+    background-color: #ffffff3f;
+}
+.item--dropdown:focus{
+    background-color: #fdfdfd7e;
+    color: #225730 !important;
+    font-weight: 700;
+}
+.nav__item--dropdown:hover .dropdown-list{
+    visibility:visible;
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+}
+.material-icons-outlined{
+	color: #024700;
+	display: inline-block;
+    padding-left: 0px;
+    width: 21px;
+    height: 21px;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.nav__item{
+    margin-left: 15px
+}
+.nav__back{
+    color: #FFFFFF;
+    position:absolute;
+    display: flex;
+    align-items: center;
+    float:right;
+    bottom:30px;
+    left: 10px;
+    width:100%;
+    cursor: pointer;
+}
+

@@ -1,0 +1,326 @@
+*{
+    font-size: 15px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+.main{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: max-content;
+    background: #F6F8FB;
+}
+.main-left{
+    width: 15%;
+}
+/* -----Cố định--------- */
+.main-right{
+    width: 85%;
+    height: 100vh;
+    display: flex;
+    padding: 0 38px;
+    flex-direction: column;
+}
+.admin-info{
+    display: flex;
+    background: #F6F8FB;
+    padding: 24px 0px;
+    justify-content: flex-end;
+}
+.admin-ava{
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+}
+
+.admin-ava {
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+}
+
+.admin-info .material-symbols-outlined {
+    cursor: pointer;
+}
+
+
+.material-symbols-outlined {
+    font-variation-settings:
+        'FILL' 1,
+        'wght' 400,
+        'GRAD' 0,
+        'opsz' 40;
+}
+
+.admin-name {
+    width: fit-content;
+    height: fit-content;
+    margin: 0 10px;
+    text-align: center;
+}
+
+.page-title {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 5px;
+}
+
+.page-title p {
+    font-weight: bold;
+    font-size: 28px;
+    margin: 0;
+    padding: 0;
+    color: #2D982A;
+}
+
+.page-search{
+    color: #f2f2f2;
+    border-radius: 25px;
+    border: 1px solid #2D982A;
+    padding: 0px 10px;
+    display: flex;  
+    flex-direction: row;
+}
+#search{
+    font-size: 13px;
+    border: none;
+}
+.page-search .material-symbols-outlined {
+    font-variation-settings:
+    'FILL' 1,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 20;
+    color: #979797;
+}
+.content-chat {
+    display: flex;
+    flex-direction: row;
+}
+
+.box__chat--list {
+    width: 23%;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 3px;
+    border: 1px solid #ccc;
+    /* Đường viền cho vùng chứa message */
+}
+
+.chat-list-content {
+    display: block;
+    list-style: none;
+    text-decoration: none;
+    margin-block-end: 1em;
+    height: 500px;
+    /* Độ cao của vùng chứa message */
+    overflow-y: auto;
+    /* Cho phép cuộn dọc khi nội dung vượt quá chiều cao */
+    padding: 10px;
+    /* Khoảng cách đệm nội dung message từ lề trong */
+}
+
+.chat-list-content-detail {
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+}
+
+.chat-list-content li {
+    cursor: pointer;
+}
+
+.chat-list-content li:hover {
+    background-color: #dddddd;
+}
+
+hr {
+    border: 1px solid #e3e3e3;
+}
+
+.cus-ava {
+    width: 30px;
+    margin: 0 10px;
+}
+
+.cus-ava img {
+    width: 100%;
+}
+
+.info {
+    margin-left: 5px;
+}
+
+.name {
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.status {
+    color: #999;
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+}
+
+.material-icons-outlined {
+    font-size: 24px;
+    padding: 5px;
+    cursor: pointer;
+    color: #999;
+}
+
+.page-body-nav {
+    margin-left: 5px;
+    align-items: center;
+}
+
+.page-body-nav a {
+    margin-top: 20px;
+    color: black;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.page-body-nav a.active {
+    background-color: #225730;
+    color: white;
+}
+
+.page-body-nav a:hover:not(.active) {
+    background-color: #ddd;
+    border-radius: 5px;
+}
+
+#active {
+    background: #efefef;
+}
+
+.chat-main {
+    width: 77%;
+    display: block;
+    margin-left: 10px;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 3px;
+}
+
+.chat-header {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+}
+
+.chat-header-img {
+    width: 50px;
+    margin-right: 10px;
+}
+
+.chat-header-img img {
+    width: 100%;
+    border-radius: 50%;
+}
+
+.chat-info {
+    margin-left: 5px;
+}
+
+.chat-info p {
+    margin: 0;
+    padding: 0;
+}
+
+#chat-info-name {
+    font-weight: bold;
+    font-size: 20px;
+    margin: 0;
+}
+
+.chat-main {
+    border-bottom: 2px solid #fff;
+}
+
+.texting {
+    list-style: none;
+    text-decoration: none;
+    width: 100%;
+    padding: 0;
+}
+
+.texting1 {
+    list-style: none;
+    text-decoration: none;
+}
+
+.texting1-data {
+    display: flex;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.texting1-data-content {
+    border-style: solid;
+    border-radius: 10px;
+    padding: 8px;
+    border-color: #999;
+}
+
+.texting1-data-time {
+    color: #000000;
+    text-align: center;
+}
+
+#tag {
+    border: none;
+    background: none;
+}
+
+.chat-content {
+    height: 300px;
+}
+
+.chat-tag {
+    height: fit-content;
+    padding: 0px 0;
+}
+
+.chat-send {
+    height: 42.1px;
+    display: flex;
+    align-items: center;
+    font-size: 20px;
+    padding-left: 5px;
+}
+
+.form-control {
+    height: 45px;
+    width: 95%;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-right: 5px;
+}
+
+/* Add styling for the send button */
+#tag span.material-icons-outlined {
+    cursor: pointer;
+    margin-right: 5px;
+    color: #225730;
+}
+
+.chat-send button {
+    border: none;
+    background: #225730;
+    color: white;
+    border-radius: 5px;
+    padding: 10px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.chat-send button:hover {
+    background-color: #194c27;
+}

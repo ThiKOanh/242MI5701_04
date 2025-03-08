@@ -1,0 +1,94 @@
+<div class="container">
+  <p class="title">Thông tin chi tiết đơn hàng</p>
+  <div class="content">
+    <div class="content__order">
+      <p>
+        Đơn hàng {{order.OrderID}} <span class="completed"> {{order.Status}} </span>
+      </p>
+      <div class="content__order--infor">
+        <p>Thông tin nhận hàng và thanh toán</p>
+        <div class="order__form--row">
+          <div class="form__row">
+            <label class="form__label" for="orderID">Mã đơn hàng:</label>
+            <label class="form__content" for="orderID">
+              {{order.OrderID}}
+            </label>
+          </div>
+          <div class="form__row">
+            <label class="form__label" for="name_order">Họ và tên người nhận:</label>
+            <label class="form__content" for="name_order">{{order.CustomerName}}</label>
+          </div>
+          <div class="form__row">
+            <label class="form__label" for="phone_order">Số điện thoại người nhận:</label>
+            <label class="form__content" for="phone_order">{{order.Phone}}</label>
+          </div>
+          <div class="form__row">
+            <label class="form__label" for="address_receive">Email:</label>
+            <label class="form__content" for="address_receive">{{order.Email}}</label>
+          </div>
+          <div class="form__row">
+            <label class="form__label" for="address_receive">Địa chỉ nhận hàng:</label>
+            <label class="form__content" for="address_receive">{{order.Address}}</label>
+          </div>
+          <div class="form__row">
+            <label class="form__label" for="payment_method">Phương thức thanh toán:</label>
+            <label class="form__content" for="payment_method">{{order.PaymentMethod}}</label>
+          </div>
+          <div class="form__row">
+            <label class="form__label" for="time_order">Thời gian đặt hàng:</label>
+            <label class="form__content" for="time_order">{{order.OrderDate}}</label>
+          </div>
+          <div class="form__row">
+            <label class="form__label" for="time_receive">Thời gian nhận dự kiến:</label>
+            <label class="form__content" for="time_receive">{{order.ShipDate}}</label>
+          </div>
+        </div>
+      </div>
+    </div>
+    <table class="order_table">
+      <thead class="table_title">
+        <th>Ảnh</th>
+        <th>Sản phẩm</th>
+        <th>Số lượng</th>
+        <th>Đơn giá</th>
+        <th>Thành tiền</th>
+      </thead>
+      <tbody class="table_content">
+        <tr class="table_data" *ngFor="let prod of order.OrderCosmetic">
+          <td class="image"><img src="{{prod.Image}}">
+          <td>{{prod.Name}}</td>
+          <td>{{prod.quantity}}</td>
+          <td>{{prod.Price}} VNĐ</td>
+          <td>{{findSum(prod)}} VNĐ</td>
+        </tr>
+        <tr>
+          <td colspan="4" class="text-end">Tạm tính</td>
+          <td>
+            {{order.PrePrice.toLocaleString("vi-VN", {minimumFractionDigits: 0})}} VNĐ
+          </td>
+        </tr>
+        <tr>
+          <td colspan="4" class="text-end">Phí vận chuyển</td>
+          <td>
+            {{order.DeliveryFee.toLocaleString("vi-VN", {minimumFractionDigits: 0})}} VNĐ
+          </td>
+        </tr>
+        <tr>
+          <td colspan="4" class="text-end">Giảm giá</td>
+          <td>
+            {{order.DiscountPrice.toLocaleString("vi-VN", {minimumFractionDigits: 0})}} VNĐ
+          </td>
+        </tr>
+        <tr class="table_data table-lg">
+          <td colspan="4" class="total text-end">Tổng cộng</td>
+          <td class="total" style="font-weight: bold; color:#2D982A; font-size:15pt">
+            {{order.TotalPrice.toLocaleString("vi-VN", {minimumFractionDigits: 0})}} VNĐ
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="button_continue">
+    <button (click)="gotoHome()">Tiếp tục mua sắm</button>
+  </div>
+</div>
