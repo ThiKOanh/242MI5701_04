@@ -15,7 +15,7 @@ export class AdminLoginComponent {
 
   onSubmit(): void {
     // Kiểm tra tài khoản và mật khẩu nhập vào có đúng hay không
-    if (this.username === 'Beaurity Admin' && this.password === '68686868') {
+    if (this.username === 'MenDen Admin' && this.password === '68686868') {
       // Nếu đúng, chuyển hướng đến trang quản trị
       this.router.navigate(['admin-home']);
     } else {

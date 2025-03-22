@@ -15,6 +15,42 @@ app.use(cookieParser());
 
 const cors = require("cors");
 app.use(cors())
+
+const { MongoClient, ObjectId } = require("mongodb");
+const client = new MongoClient("mongodb://127.0.0.1:27017");
+let database;
+let cosmeticCollection;
+let customerCollection;
+let orderCollection;
+let categoryCollection;
+let accountCollection;
+let deliveryCustomerCollection;
+
+// Connect to MongoDB with error handling
+async function connectToDatabase() {
+  try {
+    await client.connect();
+    database = client.db("MenDenDatabase");
+    cosmeticCollection = database.collection("CosmeticData");
+    customerCollection = database.collection("CustomerData");
+    orderCollection = database.collection("OrderData");
+    categoryCollection = database.collection("CategoryData");
+    accountCollection = database.collection("AccountCustomerData");
+    deliveryCustomerCollection = database.collection("DeliveryCustomerData");
+    console.log('Successfully connected to MongoDB');
+  } catch (error) {
+    console.error('Failed to connect to MongoDB:', error);
+    process.exit(1);
+  }
+}
+
+connectToDatabase();
+
+// Handle MongoDB connection errors
+client.on('error', (error) => {
+  console.error('MongoDB connection error:', error);
+});
+
 app.listen(port, () => {
   console.log(`My Service start at port ${port}`)
 })
@@ -22,17 +58,6 @@ app.listen(port, () => {
 app.get("/", (req, res) => {
   res.send("This is my Restful API service")
 })
-
-const { MongoClient, ObjectId } = require("mongodb");
-client = new MongoClient("mongodb://127.0.0.1:27017");
-client.connect();
-database = client.db("BeaurityDatabase");
-cosmeticCollection = database.collection("CosmeticData");
-customerCollection = database.collection("CustomerData");
-orderCollection = database.collection("OrderData");
-categoryCollection = database.collection("CategoryData")
-accountCollection = database.collection("AccountCustomerData");
-deliveryCustomerCollection = database.collection("DeliveryCustomerData");
 
 // Thông tin của Sản phẩm
 app.get("/cosmetics", cors(), async (req, res) => {
@@ -103,11 +128,17 @@ app.delete("/cosmetics/:id", cors(), async (req, res) => {
 });
 
 app.get('/search', cors(), async (req, res) => {
-  const keyword = req.query.keyword;
-  const cosmeticCollection = database.collection('CosmeticData');
-  const query = { Name: { $regex: keyword, $options: 'i' } };
-  const cosmetics = await cosmeticCollection.find(query).toArray();
-  res.send(cosmetics);
+  try {
+    const keyword = req.query.keyword;
+    if (!keyword) {
+      return res.status(400).json({ error: 'Keyword is required' });
+    }
+    const query = { Name: { $regex: keyword, $options: 'i' } };
+    const cosmetics = await cosmeticCollection.find(query).toArray();
+    res.json(cosmetics);
+  } catch (error) {
+    res.status(500).json({ error: 'Internal server error', message: error.message });
+  }
 });
 
 // Lấy thông tin Category
@@ -171,7 +202,20 @@ app.delete("/categories/:id", cors(), async (req, res) => {
 //Thông tin của Giỏ hàng
 const session = require('express-session');
 const { hasSubscribers } = require('diagnostics_channel');
-app.use(session({ secret: "Shh, its a secret!" }));
+
+// Improved session configuration
+app.use(session({
+  secret: process.env.SESSION_SECRET || "Shh, its a secret!",
+  resave: false,
+  saveUninitialized: false,
+  cookie: {
+    secure: process.env.NODE_ENV === 'production', // Use secure cookies in production
+    httpOnly: true,
+    maxAge: 24 * 60 * 60 * 1000 // 24 hours
+  },
+  name: 'sessionId' // Don't use default connect.sid
+}));
+
 app.get("/contact", cors(), (req, res) => {
   if (req.session.visited != null) {
     req.session.visited++
@@ -272,44 +316,34 @@ app.post("/customers", cors(), async (req, res) => {
 });
 
 app.put("/customers", cors(), async (req, res) => {
-  await customerCollection.updateOne(
-    { _id: new ObjectId(req.body._id) }, //condition for update
-    {
-      $set: {
-        //Field for updating
-        CustomerName: req.body.CustomerName,
-        Phone: req.body.Phone,
-        Mail: req.body.Mail,
-        BOD: req.body.BOD,
-        Gender: req.body.Gender,
-        Image: req.body.Image
-      },
+  try {
+    if (!req.body._id) {
+      return res.status(400).json({ error: 'Customer ID is required' });
     }
-  )
-  var o_id = new ObjectId(req.body._id);
-  const result = await customerCollection.find({ _id: o_id }).toArray();
-  res.send(result[0])
-});
-
-app.put("/customers", cors(), async (req, res) => {
-  await customerCollection.updateOne(
-    { _id: new ObjectId(req.body._id) }, //condition for update
-    {
-      $set: {
-        //Field for updating
-        CustomerName: req.body.CustomerName,
-        Phone: req.body.Phone,
-        Mail: req.body.Mail,
-        BOD: req.body.BOD,
-        Gender: req.body.Gender,
-      },
+    
+    await customerCollection.updateOne(
+      { _id: new ObjectId(req.body._id) },
+      {
+        $set: {
+          CustomerName: req.body.CustomerName,
+          Phone: req.body.Phone,
+          Mail: req.body.Mail,
+          BOD: req.body.BOD,
+          Gender: req.body.Gender,
+          Image: req.body.Image
+        },
+      }
+    );
+    
+    const result = await customerCollection.find({ _id: new ObjectId(req.body._id) }).toArray();
+    if (!result.length) {
+      return res.status(404).json({ error: 'Customer not found' });
     }
-  )
-  var o_id = req.params._id;
-  const result = await customerCollection.find({ _id: o_id }).toArray();
-  res.send(result[0])
+    res.json(result[0]);
+  } catch (error) {
+    res.status(500).json({ error: 'Internal server error', message: error.message });
+  }
 });
-
 
 app.get("/delivery", cors(), async (req, res) => {
   const result = await deliveryCustomerCollection.find({}).toArray();
@@ -457,12 +491,4 @@ app.get("/orders/customer/:name", cors(), async (req, res) => {
   const customerName = req.params["name"];
   const result = await orderCollection.find({ CustomerName: customerName }).toArray();
   res.send(result);
-});
-
-app.get('/search', cors(), async (req, res) => {
-  const keyword = req.query.keyword;
-  const cosmeticCollection = database.collection('CosmeticData');
-  const query = { Name: { $regex: keyword, $options: 'i' } };
-  const cosmetics = await cosmeticCollection.find(query).toArray();
-  res.send(cosmetics);
 });
